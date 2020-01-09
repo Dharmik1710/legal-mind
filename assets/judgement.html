@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Legalmind-judgement</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="judgement.css" rel="stylesheet">
+  
+</head>
+    
+<body style="background-color: #FDF5F5">
+  
+<section>
+<nav class="navbar navbar-dark navbar-expand-sm bg-dark py-3">
+  <div class="navbar-brand position-absolute font-weight-bolder">LegalMind</div>
+  <div class="container justify-content-center">
+    <ul class="nav navbar-nav mx-auto">
+      <li class="nav-item active">
+          <a class="nav-link d-inline" href="#">ARGUMENTS</a>
+          <div class="uline mx-auto"></div>
+      </li>
+      <span class="d-inline mx-1 text-secondary">|</span>
+      <li class="nav-item">
+          <a class="nav-link d-inline" href="#">ISSUES</a>
+          <div class="uline mx-auto"></div>
+      </li>
+      <span class="d-inline mx-1 text-secondary">|</span>
+      <li class="nav-item">
+          <a class="nav-link d-inline" href="#">VERDICT</a>
+          <div class="uline mx-auto"></div>
+      </li>
+      <span class="d-inline mx-1 text-secondary">|</span>
+      <li class="nav-item">
+          <a class="nav-link d-inline" href="#">SENTIMENTS</a>
+          <div class="uline mx-auto"></div>
+      </li>
+    </ul>
+  </div>
+</nav>  
+  
+</section>
+  
+  
+  
+<section class="judgeBody">
+  <div class="row container-fluid justify-content-around mx-auto my-4">
+    
+    <!--  Buttons on left side-->
+    <div class="col col-2 bg-white btnOpt">
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-secondary w-100 my-2">
+          <input type="checkbox" checked autocomplete="off"> Button 1
+        </label>
+      </div>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-secondary w-100 my-2">
+          <input type="checkbox" checked autocomplete="off"> Button 2
+        </label>
+      </div>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-secondary w-100 my-2">
+          <input type="checkbox" checked autocomplete="off"> Button 3
+        </label>
+      </div>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-secondary w-100 my-2">
+          <input type="checkbox" checked autocomplete="off"> Button 4
+        </label>
+      </div>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-secondary w-100 my-2">
+          <input type="checkbox" checked autocomplete="off"> Button 5
+        </label>
+      </div>
+    </div>
+
+    <!--  judgement part-->
+    <div class="col col-7 p-4 bg-light judgement">
+      <div id="judgement">
+        <h4 id="caseName" class="text-center mb-5 font-italic">RAJARAM YADAV VS STATE OF BIHAR</h4>
+        <div id="court" class="font-weight-bold d-inline-block font-italic">The High Court of Patna</div>
+        <div class="float-right font-italic">
+          <div><span class="font-weight-bold">Date&emsp;&emsp;:&emsp; </span><span id="date"></span></div>
+          <div><span class="font-weight-bold">Bench &emsp;:&emsp; </span><span id="bench"></span></div>
+        </div>
+        <br><br>
+        <hr>
+        <p id="judgementContent"></p>
+      </div>
+
+    </div> 
+    
+    <!--  Buttons on left side-->
+    <div class="col col-2 bg-white btnOpt">
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-secondary w-100 my-2">
+          <input type="checkbox" checked autocomplete="off"> Button 1
+        </label>
+      </div>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-secondary w-100 my-2">
+          <input type="checkbox" checked autocomplete="off"> Button 2
+        </label>
+      </div>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-secondary w-100 my-2">
+          <input type="checkbox" checked autocomplete="off"> Button 3
+        </label>
+      </div>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-secondary w-100 my-2">
+          <input type="checkbox" checked autocomplete="off"> Button 4
+        </label>
+      </div>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-secondary w-100 my-2">
+          <input type="checkbox" checked autocomplete="off"> Button 5
+        </label>
+      </div>
+    </div>
+    
+  </div>
+</section>  
+  
+  
+</body>  
+</html>  

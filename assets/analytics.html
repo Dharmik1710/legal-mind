@@ -1,0 +1,185 @@
+<head>
+<style>
+  body{
+    margin: 0;
+    padding: 0;
+  }
+  
+  #data_form{
+    height: 600px;
+    left: 1100px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+    top: 0;
+    right: 0;
+  }
+
+  .chosen-container-single .chosen-single {
+      height: 30px;
+      border-radius: 3px;
+      border: 1px solid #CCCCCC;
+      font-size: 15px;
+  }
+  .chosen-container-single .chosen-single span {
+      padding-top: 2px;
+  }
+  .chosen-container-single .chosen-single div b {
+      margin-top: 2px;
+  }  
+  
+  select{
+    width: 200px;
+  }
+  
+  fieldset 
+	{
+		border: 1px solid #ddd !important;
+		margin: 0;
+		padding: 10px;       
+		position: relative;
+		border-radius: 4px;
+		background-color: #f5f5f5;
+		padding-left: 10px!important;
+        position: relative;
+	}	
+
+  .date {
+      position: absolute;
+      top: 0em;
+      right: 20px;
+      background: #fff;
+      line-height:1.2em;
+    }
+  
+    legend, .date
+    {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 0px; 
+        width: auto; 
+        border: 1px solid #ddd;
+        border-radius: 4px; 
+        padding: 5px 10px 5px 10px; 
+        background-color: #222D7D;
+        color: white;
+    }
+  
+  .card-text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+  
+  #cards ul{
+    list-style-type: none;
+    padding: 0;
+  }
+  
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+    <div class="col-9 d-inline" id="data_display">
+      <!--    buttons on top-->
+      <div class="d-flex justify-content-between mb-4">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-outline-primary active rounded px-5">
+            <input type="radio" name="analytics" id="court" autocomplete="off" checked> Court Analytics
+          </label>
+          <label class="btn btn-outline-primary ml-3 rounded px-5">
+            <input type="radio" name="analytics" id="lawyer" autocomplete="off"> Lawyer Analytics
+          </label>
+          <label class="btn btn-outline-primary ml-3 rounded px-5">
+            <input type="radio" name="analytics" id="party" autocomplete="off"> Party Analytics
+          </label>
+        </div>
+      </div>
+      <!--  graph column-->
+      <div class="border rounded charts my-3"><canvas id="chart1"></canvas></div>
+      <div class="border rounded charts my-3"><canvas id="chart2"></canvas></div>   
+
+      
+      <!-- card and search-->
+      <div class="my-5" id="">
+        <!-- Search-->
+        <div class="input-group md-form form-sm form-2 pl-0 my-4" id="scrollFix">
+<!--
+          <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search for cases" aria-label="Search">
+          <div class="input-group-append">
+            <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey"
+                aria-hidden="true"></i></span>
+          </div>
+-->
+        </div>
+
+        <!-- cards list -->
+        <div class="my-3" id="cards"></div>
+<!--
+        <ul class="my-3">
+          <li>
+            <fieldset class="my-4">
+              <legend> RAJARAM YADAV VS STATE OF BIHAR </legend>
+              <div class="date">Thu Apr 11 1996</div>
+                <div class="card-body">
+                  <h5 class="card-title">The High Court of Patna<span class="float-right">Bench: G.N Ray</span></h5>
+                  <p class="card-text"></p>
+                </div>
+
+            </fieldset>
+            
+          </li>
+        </ul>          
+-->
+        
+      </div>
+    </div>
+
+    <!--  form-->
+    <div class="col-2 position-fixed d-inline bg-light" id="data_form">
+      <div class="options align-center my-4">
+        <select class="chosen" id="court">
+          <option selected>Court</option>
+        </select>
+      </div>
+
+      <div class="options align-center my-4">
+        <select class="chosen" id="judge">
+          <option selected>Judge</option>
+        </select>
+      </div>
+
+      <div class="options align-center my-4">
+        <select class="chosen" id="lawyerName">
+          <option selected>Lawyer</option>
+        </select>
+      </div>
+
+      <div class="options align-center my-4">
+        <select class="chosen" id="pracArea">
+          <option selected>Practice Area</option>
+        </select>
+      </div>
+
+      <div class="options align-center my-4">
+        <select class="chosen" id="partyName">
+          <option selected>Party Name</option>
+        </select>
+      </div>
+
+      <div class="ml-auto" id="Year">
+        <div class="form-inline justify-content-around">
+          <input type="text" class="form-control-sm col-4" placeholder="From" id="fromYrPicker">
+          <input type="text" class="form-control-sm col-4" placeholder="To" id="toYrPicker">
+          <input type="text" class="form-control-sm my-4 col-12" placeholder="Add Statutes">
+          <button type="submit" class="btn-sm btn-primary" onclick="getData()">Submit</button>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </div>
+</body>

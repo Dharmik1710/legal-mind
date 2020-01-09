@@ -1,0 +1,42 @@
+.navbar{
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+}
+
+.nav-link{
+  color: gray;
+  text-decoration: none;
+}
+
+.uline{
+  display: none;
+  width: 40%;
+  border: 1px solid white;
+}
+
+.uline .active{
+  color: black;
+  font-weight: 500;
+}
+
+.active .uline{
+  display: block;
+}
+
+.navbar-brand{
+  font-size: 25px;
+}
+
+.judgeBody .col{
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s; 
+}
+
+.btnOpt{
+  height: 100%;
+}
+
+.judgement{
+  height: 700px;
+  overflow: auto;
+}

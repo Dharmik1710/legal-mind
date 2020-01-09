@@ -1,0 +1,76 @@
+html {
+  scroll-behavior: smooth;
+}
+
+#wrapper .navbar{
+  background-color: #222D7D;
+}
+
+#content-wrapper{
+  display: flex;
+  width: 100%;
+  margin-left: 225px;
+  transition: all 0.5s;
+}
+
+.sidebar-toggled #content-wrapper {
+  margin-left: 104px;
+}
+
+#page-content{
+  margin-top: 20px;
+}
+
+#content .navbar{
+  position: fixed;
+  width: calc(100% - 225px);
+  transition: all 0.5s;
+  right: 0;
+  z-index: 1000;
+}
+
+.sidebar-toggled #content .navbar{
+  width: calc(100% - 104px);
+}
+
+.sidebar-brand-icon{
+  height: 50px;
+  width: 50px;
+}
+
+#page-content{
+  position: relative;
+  top: 70px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    transition: all 0.5s;
+  background-color: aqua;
+}
+
+/*removing focus from input fields*/
+input, textarea {
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
+}
+
+#accordionSidebar .nav-link:hover{
+  background-color: white;
+  cursor: pointer;
+  color: black;
+}
+
+.fa:hover{
+  color: black;
+}
+
+.vertical_nav{
+  box-shadow: 3px 3px 10px rgba(34,45,125, 0.5);
+  transition: all 5s;
+}
