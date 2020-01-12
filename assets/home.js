@@ -1,12 +1,12 @@
 //  XMLHttpRequest for analytics page
 var myRequest = new XMLHttpRequest();
 myRequest.open('GET', './assets/analyticsNEW.html');
-myRequest.onreadystatechange = function () { 
+myRequest.onreadystatechange = function () {
     if (myRequest.readyState === 4) {
-      document.getElementById('page-content').innerHTML = myRequest.responseText;      
-      
-      
-//    loading initial select data script dynamically 
+      document.getElementById('page-content').innerHTML = myRequest.responseText;
+
+
+//    loading initial select data script dynamically
       var newScript = document.createElement("script");
       newScript.src = "./assets/init.js";
       document.getElementById("data_display").appendChild(newScript);
@@ -15,7 +15,7 @@ myRequest.onreadystatechange = function () {
       var newScript = document.createElement("script");
       newScript.src = "./assets/graphs.js";
       document.getElementById("data_display").appendChild(newScript);
-  
+
       var newScript = document.createElement("script");
       newScript.src = "./assets/UpdateUI.js";
       document.getElementById("data_display").appendChild(newScript);
@@ -23,6 +23,23 @@ myRequest.onreadystatechange = function () {
       var newScript = document.createElement("script");
       newScript.src = "./assets/api.js";
       document.getElementById("data_display").appendChild(newScript);
+
+      // var newScript = document.createElement("script");
+      // newScript.src = "./assets/datatables/jquery.dataTables.min.js";
+      // document.getElementById("lawyerTable").appendChild(newScript);
+      //
+      // var newScript = document.createElement("script");
+      // newScript.src = "./assets/datatables/dataTables.bootstrap4.min.js";
+      // document.getElementById("lawyerTable").appendChild(newScript);
+      //
+      // var newScript = document.createElement("script");
+      // newScript.src = "./assets/jquery/jquery.min.js";
+      // document.getElementById("lawyerTable").appendChild(newScript);
+      //
+      // var newScript = document.createElement("script");
+      // newScript.src = "./assets/bootstrap/js/bootstrap.bundle.min.js";
+      // document.getElementById("lawyerTable").appendChild(newScript);
+
     }
 };
 
@@ -36,25 +53,25 @@ req.onreadystatechange = function () {
         // list of cards
         var cardsList = '<ul class="">';
         for (var i=0; i<cards.length; i += 1) {
-          cardsList += '<li id="card' + i + '">    <fieldset class="my-5">   <legend>' + cards[i].title + '</legend>   <div class="date">' + cards[i].date + '</div>   <div class="card-body">   <h5 class="card-title mb-4">' + cards[i].courtName +   '<span class="float-right">Bench: ' + cards[i].bench + '</span>   </h5>   <p class="card-text">' + cards[i].content + '</p>   </div> </fieldset> </li>';
+          cardsList += '<li id="card' + i + '">    <fieldset class="shadow my-5">   <legend>' + cards[i].title + '</legend>   <div class="date">' + cards[i].date + '</div>   <div class="card-body">   <h5 class="card-title mb-4">' + cards[i].courtName +   '<span class="float-right">Bench: ' + cards[i].bench + '</span>   </h5>   <p class="card-text">' + cards[i].content + '</p>   </div> </fieldset> </li>';
         }
-    cardsList += '</ul>';    
+    cardsList += '</ul>';
     document.getElementById('cards').innerHTML = cardsList;
   }
 };
 
 function analytics(){
-  myRequest.send(); 
+  myRequest.send();
   req.send();
 }
 
 var searchArray = ['search1', 'search 2', 'search 3', 'search 4', 'search 5', 'search 6', 'search 7'];
 
 $(document).ready(function(){
-  
-    $("#Search").keyup(function(){  
+
+    $("#Search").keyup(function(){
         var search = $(this).val();
-        var searchedArr = []; 
+        var searchedArr = [];
         if(search != ""){
           for(var i=0; i<searchArray.length; i++){
             if(searchArray[i].match(search)){
@@ -67,10 +84,10 @@ $(document).ready(function(){
           searchList += "<li>" + searchedArr[i] + "</li>";
         }
         searchList += "</ul>";
-        
+
         document.getElementById("Search").innerHTML = searchList;
     });
-  
+
 });
 
 // Set Text to search box and get details
@@ -81,7 +98,7 @@ function setText(element){
 
     $("#txt_search").val(value);
     $("#searchResult").empty();
-    
+
     // Request User Details
     $.ajax({
         url: 'getSearch.php',

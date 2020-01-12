@@ -3,7 +3,7 @@ html{
 }
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-body {  
+body {
   font-family: 'Poppins', sans-serif;
   background: #fafafa;
   box-sizing: border-box;
@@ -21,23 +21,22 @@ body {
 }
 
 #sidebar {
-    width: 285px;
-    position: fixed;
-    top: 71px;
-    right: 0;
-    height: calc(100% - 71px);
-    z-index: 999;
-    background: white;
-    color: #fff;
-    transition: all 0.5s;
-    box-shadow: 1px 1px 3px lightgrey;
-    box-sizing: border-box;
+  width: 290px;
+  position: fixed;
+  top: 71px;
+  right: 0;
+  height: calc(100% - 71px);
+  z-index: 999;
+  background-color: white;
+  color: black;
+  transition: all 0.5s;
+  box-shadow: 1px 1px 3px lightgrey;
+  box-sizing: border-box;
   overflow-y: scroll;
-
 }
 
 #sidebar.active {
-    margin-right: -245px;
+    margin-right: -250px;
 }
 
 #menuButton{
@@ -54,16 +53,11 @@ body {
   top: 10px;
 }
 
-button{
-  outline: none;
-}
-
 #menu{
-  margin-left: calc(100% - 250px);
-  width: 240px;
-  justify-content: center;
-  text-align: center;
+  margin-left: 35px;
+  width: 250px;
   overflow-y: scroll;
+  text-align: center;
 }
 
 /* ---------------------------------------------------
@@ -118,8 +112,11 @@ button{
 .chosen-container-single .chosen-single {
     height: 30px;
     border-radius: 3px;
-    border: 1px solid #CCCCCC;
     font-size: 15px;
+}
+
+.chosen-container-single{
+  text-align: left;
 }
 
 .chosen-container-single .chosen-single span {
@@ -128,23 +125,23 @@ button{
 
 .chosen-container-single .chosen-single div b {
     margin-top: 2px;
-}  
+}
 
 select{
   width: 200px;
 }
 
-fieldset 
+fieldset
 {
   border: 1px solid #ddd !important;
   margin: 0;
-  padding: 10px;       
+  padding: 10px;
   position: relative;
   border-radius: 4px;
   background-color: #f5f5f5;
   padding-left: 10px!important;
   position: relative;
-}	
+}
 
 .date {
     position: absolute;
@@ -158,11 +155,11 @@ fieldset
   {
       font-size: 16px;
       font-weight: bold;
-      margin-bottom: 0px; 
-      width: auto; 
+      margin-bottom: 0px;
+      width: auto;
       border: 1px solid #ddd;
-      border-radius: 4px; 
-      padding: 5px 10px 5px 10px; 
+      border-radius: 4px;
+      padding: 5px 10px 5px 10px;
       background-color: #222D7D;
       color: white;
   }
@@ -182,16 +179,16 @@ fieldset
 #cards li{
   list-style-type: none;
 /*
-  -webkit-transition: 0.5s;  For Safari 3.1 to 6.0 
-  transition: 0.5s;      
+  -webkit-transition: 0.5s;  For Safari 3.1 to 6.0
+  transition: 0.5s;
 */
 }
 
 #cards li:hover{
   cursor: pointer;
-/*      -ms-transform: scale(1.05);  IE 9 
+/*      -ms-transform: scale(1.05);  IE 9
   -webkit-transform: scale(1.05);  Safari 3-8
-  transform: scale(1.1); */       
+  transform: scale(1.1); */
 }
 
 
@@ -224,17 +221,22 @@ fieldset
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
-  background-color: #fff; 
-  border-bottom: 1px solid #d4d4d4; 
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
 }
 
 /*when hovering an item:*/
 .autocomplete-items div:hover {
-  background-color: #e9e9e9; 
+  background-color: #e9e9e9;
 }
 
 /*when navigating through the items using the arrow keys:*/
 .autocomplete-active {
-  background-color: DodgerBlue !important; 
-  color: #ffffff; 
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
+input, button, .custom-radio {
+  outline: none;
+  box-shadow:none !important;
 }

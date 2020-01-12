@@ -1,50 +1,50 @@
-//var c1 = document.getElementById("chart1").getContext('2d');
-//var yearCountChart = new Chart(c1, {
-//	// The type of chart we want to create
-//	type: 'bar',
-//
-//	// The data for our dataset
-//	data: {
-//		labels: ['1999', '2000', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010'],
-//		datasets: [{
-//			label: 'CaseMap Will Be Displayed Here',
-//			fillColor: "rgba(220,220,220,0.0)",
-//			strokeColor: "rgba(220,220,220,0)",
-//			pointColor: "rgba(220,220,220,0)",
-//			pointStrokeColor: "#fff",
-//			pointHighlightFill: "#fff",
-//			pointHighlightStroke: "rgba(220,220,220,1)",
-//			data: [5, 10, 5, 2, 20, 30, 45, 20, 67, 58, 26]
-//		}]
-//	},
-//
-//	// Configuration options go here
-//	options: {
-//    maintainAspectRatio: false,
-//  }
-//});
-//
-//
-//var c2 = document.getElementById("chart2").getContext('2d');
-//var praticeAreaChart = new Chart(c2, {
-//	type: 'doughnut',
-//	data: {
-//		labels: ["WP", "CPRL", "CA", "ARB"],
-//		datasets: [{
-//			label: "No. Of Cases",
-//			backgroundColor: [],
-//			data: [2478, 5267, 734, 784, 433]
-//		}]
-//	},
-//	options: {
-//    maintainAspectRatio: false,
-//		title: {
-//			display: true,
-//			text: 'No Of Case In Each Pratice Area'
-//		}
-//	}
-//});
-//
+var c1 = document.getElementById("chart1").getContext('2d');
+var yearCountChart = new Chart(c1, {
+	// The type of chart we want to create
+	type: 'bar',
+
+	// The data for our dataset
+	data: {
+		labels: ['1999', '2000', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010'],
+		datasets: [{
+			label: 'CaseMap Will Be Displayed Here',
+			fillColor: "rgba(220,220,220,0.0)",
+			strokeColor: "rgba(220,220,220,0)",
+			pointColor: "rgba(220,220,220,0)",
+			pointStrokeColor: "#fff",
+			pointHighlightFill: "#fff",
+			pointHighlightStroke: "rgba(220,220,220,1)",
+			data: [5, 10, 5, 2, 20, 30, 45, 20, 67, 58, 26]
+		}]
+	},
+
+	// Configuration options go here
+	options: {
+   maintainAspectRatio: false,
+ }
+});
+
+
+var c2 = document.getElementById("chart2").getContext('2d');
+var praticeAreaChart = new Chart(c2, {
+	type: 'doughnut',
+	data: {
+		labels: ["WP", "CPRL", "CA", "ARB"],
+		datasets: [{
+			label: "No. Of Cases",
+			backgroundColor: [],
+			data: [2478, 5267, 734, 784, 433]
+		}]
+	},
+	options: {
+   maintainAspectRatio: false,
+		title: {
+			display: true,
+			text: 'No Of Case In Each Pratice Area'
+		}
+	}
+});
+
 
 
 var costGraphElement = document.getElementById("costGraph").getContext('2d');
@@ -251,7 +251,7 @@ var myBubbleChart = new Chart(myBubbleChartElemtent, {
       title: {
         display: true,
         text: 'CaseMap'
-      
+
       }
     }
 });

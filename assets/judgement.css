@@ -27,16 +27,20 @@
   font-size: 25px;
 }
 
-.judgeBody .col{
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s; 
+#judgement{
+  height: 710px;
 }
 
-.btnOpt{
-  height: 100%;
-}
-
-.judgement{
-  height: 700px;
+#judgement .card-body{
   overflow: auto;
+}
+
+#leftSidebar .card{
+  display: block;
+  height: 312px;
+}
+
+#rightSidebar .card{
+  display: block;
+  height: 330px;
 }

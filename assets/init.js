@@ -7,29 +7,29 @@ let selectInit = {
 
 };
 
-//$(function () {
-//  var courts = document.getElementById("court");
-//  for (let i = 0; i < selectInit.courts.length; i++) {
-//    var option = document.createElement("option");
-//    option.text = selectInit.courts[i];
-//    courts.add(option);
-//  }
-//  $("#court").chosen();
-//
-//  var caseTypeElement = document.getElementById("caseType");
-//  for (let i = 0; i < selectInit.caseType.length; i++) {
-//    var option = document.createElement("option");
-//    option.text = selectInit.caseType[i];
-//    caseTypeElement.add(option);
-//  }
-//  $("#caseType").chosen();
-//  $('#caseTypeParent').hide();
-//});
+$(function () {
+ var courts = document.getElementById("court");
+ for (let i = 0; i < selectInit.courts.length; i++) {
+   var option = document.createElement("option");
+   option.text = selectInit.courts[i];
+   courts.add(option);
+ }
+ $("#court").chosen();
+
+ var caseTypeElement = document.getElementById("caseType");
+ for (let i = 0; i < selectInit.caseType.length; i++) {
+   var option = document.createElement("option");
+   option.text = selectInit.caseType[i];
+   caseTypeElement.add(option);
+ }
+ $("#caseType").chosen();
+ $('#caseTypeParent').hide();
+});
 
 // Searchbar onclick scroll to cards
 $("#Search").click(function() {
   $('html, body').animate({
-      scrollTop: $("#cards").offset().top
+      scrollTop: $("#cards").offset().top-100
   }, 200);
 });
 
@@ -47,3 +47,40 @@ $(document).ready(function () {
         $('a[aria-expanded=true]').attr('aria-expanded', 'false');
     });
 });
+
+
+// functions of popup show and close
+
+var lawyerListStatsGlobal;
+var partyListStatsGlobal;
+var hearingListStatsGlobal;
+var costListStatsGlobal;
+
+function lawyerPopup(ele) {
+  // alert(lawyerListStatsGlobal)
+  updateTopAndLowLawyersModal(lawyerListStatsGlobal)
+  ele.setAttribute("data-target", "#myModal");
+  ele.setAttribute("data-toggle", "modal");
+  // document.getElementById("modalTitle") .innerHTML = opt.toUpperCase();
+}
+
+function partyPopup(ele) {
+  updatePartyStatsModal(partyListStatsGlobal)
+  // alert(partyListStatsGlobal)
+  ele.setAttribute("data-target", "#myModal");
+  ele.setAttribute("data-toggle", "modal");
+  // document.getElementById("modalTitle").innerHTML = opt.toUpperCase();
+}
+
+function hearingPopup(ele) {
+  updateHearingStatsModal(hearingListStatsGlobal)
+  // alert(partyListStatsGlobal)
+  ele.setAttribute("data-target", "#myModal");
+  ele.setAttribute("data-toggle", "modal");
+  // document.getElementById("modalTitle").innerHTML = opt.toUpperCase();
+}
+
+function closePopup(btn) {
+  btn.removeAttribute("data-target");
+  btn.removeAttribute("data-toggle");
+}

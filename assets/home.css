@@ -8,7 +8,6 @@ html {
 
 #content-wrapper{
   display: flex;
-  width: 100%;
   margin-left: 225px;
   transition: all 0.5s;
 }
@@ -17,9 +16,9 @@ html {
   margin-left: 104px;
 }
 
-#page-content{
+/* #page-content{
   margin-top: 20px;
-}
+} */
 
 #content .navbar{
   position: fixed;
@@ -27,6 +26,7 @@ html {
   transition: all 0.5s;
   right: 0;
   z-index: 1000;
+  box-shadow: 1px 1px 3px lightgrey;
 }
 
 .sidebar-toggled #content .navbar{
@@ -39,8 +39,9 @@ html {
 }
 
 #page-content{
-  position: relative;
-  top: 70px;
+  margin-top: 70px;
+  /* position: relative;
+  top: 70px; */
 }
 
 .sidebar {
@@ -54,11 +55,12 @@ html {
 }
 
 /*removing focus from input fields*/
-input, textarea {
+input, button, .custom-radio {
   outline: none;
   box-shadow:none !important;
-  border:1px solid #ccc !important;
 }
+
+
 
 #accordionSidebar .nav-link:hover{
   background-color: white;
@@ -66,8 +68,12 @@ input, textarea {
   color: black;
 }
 
-.fa:hover{
+#sidebar1 .fa:hover{
   color: black;
+}
+
+#sidebar1 .nav-link{
+  font-size: 15px;
 }
 
 .vertical_nav{

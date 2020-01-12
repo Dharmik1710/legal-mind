@@ -3,43 +3,43 @@
   <div class="loading" id="fullScreenLoader" style="display: none">Loading&#8230;</div>
 
 
-    <div class="wrapper">
+    <div class="wrapper py-4">
         <!-- Sidebar  -->
         <nav id="sidebar" class="row shadow">
           <div id="menuButton">
             <button type="button" id="sidebarCollapse" class="btn bg-light w-100">
                 <i class="fas fa-sliders"></i>
-            </button>          
+            </button>
           </div>
           <div id="menu" class="my-4">
 
         <div class="text-gray-600">
-          <h5>PREFERENCES</h5>    
-        </div>    
+          <h5>PREFERENCES</h5>
+        </div>
         <div class="options mt-5">
           <select class="chosen" onchange="dispCourt(this)" id="court">
             <option selected>Court</option>
           </select>
         </div>
-  
+
         <div class="options mt-4">
           <select class="chosen" onchange="dispJudge(this)" id="judge">
             <option selected>Judge</option>
           </select>
         </div>
-  
+
         <div class="options mt-4" id="lawyerNameParent">
           <select class="chosen" id="lawyerName">
             <option selected>Lawyer Name</option>
           </select>
         </div>
-  
+
         <div class="options mt-4">
           <select class="chosen" id="pracArea">
             <option selected>Pratice Area</option>
           </select>
         </div>
-  
+
         <div class="options mt-4">
           <select class="chosen" id="partyName">
             <option selected>Party Name</option>
@@ -51,33 +51,33 @@
             <option selected>Provisions</option>
           </select>
         </div>
-    
+
         <div class="options mt-4" id="caseTypeParent">
           <select class="chosen" id="caseType">
             <option selected>Case Type</option>
           </select>
         </div>
-  
+
         <div class="form-inline mx-auto justify-content-around mt-4" id="Year">
           <input type="text" class="form-control-sm col-4" placeholder="From" id="fromYrPicker">
           <input type="text" class="form-control-sm col-4" placeholder="To" id="toYrPicker">
         </div>
-            
+
         <input type="text" class="form-control-sm mt-4 col-10" placeholder="Add Statutes">
         <button type="submit" class="btn-sm btn-primary px-3 mx-2 mt-4">Submit</button>
         <button type="submit" class="btn-sm btn-danger px-3 mx-2 mt-4">Clear</button>
 
-            
-            
+
+
           </div>
         </nav>
 
         <!-- Page Content  -->
         <div id="cont">
           <div class="row">
-                
+
 <!--        info cards-->
-        
+
             <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-info shadow py-2 h-100">
                 <div class="card-body text-center">
@@ -95,7 +95,7 @@
                 </div>
               </div>
             </div>
-        
+
             <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-warning shadow py-2">
                 <div class="card-body text-center">
@@ -114,7 +114,7 @@
                 </div>
               </div>
             </div>
-        
+
             <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-success shadow py-2">
                 <div class="card-body text-center">
@@ -135,10 +135,25 @@
             </div>
       </div>
 
-          
+
     <div class="row" id="data_display">
-      
-      <div class="col-12 mt-4">
+
+      <div class="col-lg-12 mt-4">
+<!--         Area Chart -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Number of case in each practice area</h6>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+                <canvas id="chart2"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-4 mt-4">
 <!--         Area Chart -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
@@ -151,8 +166,8 @@
           </div>
         </div>
       </div>
-      
-      <div class="col-lg-6 mt-4">
+
+      <div class="col-lg-4 mt-4">
 <!--         Area Chart -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
@@ -165,8 +180,8 @@
           </div>
         </div>
       </div>
-      
-      <div class="col-lg-6 mt-4">
+
+      <div class="col-lg-4 mt-4">
 <!--         Area Chart -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
@@ -179,8 +194,8 @@
           </div>
         </div>
       </div>
-      
-      <div class="col-lg-12 mt-4">    
+
+      <div class="col-lg-12 mt-4">
 <!--         Area Chart -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
@@ -193,11 +208,190 @@
           </div>
         </div>
       </div>
-      
+
+      <div class="col-lg-12 mt-4">
+<!--         Area Chart -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Case map will be generated here</h6>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+                <canvas id="chart1"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
 
+    <div class="card shadow my-4" id="lawyerTable">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Lawyer Name</th>
+                <th>Lawyer Wins</th>
+                <th>Lawyer Losses</th>
+                <th>Winning Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+              </tr>
+              <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+              </tr>
+              <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="float-right"><a href="#" onclick="lawyerPopup(this)" id="lawyerStats">Priview complete table</a></div>
+
+      </div>
+    </div>
+
+
+    <div class="card shadow my-5" id="partyTable">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Party Table</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Lawyer Name</th>
+                <th>Lawyer Wins</th>
+                <th>Lawyer Losses</th>
+                <th>Winning Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+              </tr>
+              <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+              </tr>
+              <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="float-right"><a href="#" onclick="partyPopup(this)" id="partyStats">Priview complete table</a></div>
+
+      </div>
+    </div>
+
+
+    <div class="card shadow my-5" id="hearingTable">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Hearing Table</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Lawyer Name</th>
+                <th>Lawyer Wins</th>
+                <th>Lawyer Losses</th>
+                <th>Winning Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+              </tr>
+              <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+              </tr>
+              <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="float-right"><a href="#" onclick="hearingPopup(this)" id="partyStats">Priview complete table</a></div>
+
+      </div>
+    </div>
+
+
+
+    <!-- Popup code -->
+            <div class="modal fade" aria-labelledby="myLargeModalLabel" id="myModal">
+              <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modalTitle"></h4>
+                    <button type="button" class="close" data-dismiss="modal" onclick="closePopup(this)">&times;</button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <table id="topLawyersTable" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th id="th1">Lawyer Name</th>
+                          <th  id="th2">Lawyer Wins</th>
+                          <th id="th3">Lawyer Losses</th>
+                          <th id="th4">Winning Percentage</th>
+                        </tr>
+                      </thead>
+                      <tbody id="topLawyersTableBody">
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closePopup(this)"
+                      data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
 <!--    Search cards      -->
-          <div class="mt-5 mx-auto card-deck" id="cards"></div>
+          <div class="mt-5 mx-auto" id="cards"></div>
       </div>
   </div>
 

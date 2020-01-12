@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/home.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -17,35 +17,33 @@
   <link rel="stylesheet" type="text/css" href="./assets/drag-and-drop-file-uploading/dist/style.css">
   <link rel="stylesheet" href="./assets/loading.css">
   <script src="./assets/home.js"></script>
-  <link rel="stylesheet" href="./assets/home.css" type="text/css">  
+  <link rel="stylesheet" href="./assets/home.css" type="text/css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet">
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
   <link href="./assets/autocomplete/autocomplete.css" rel="stylesheet">
       <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="./assets/analyticsNEW.css">
+  <link rel="stylesheet" href="./assets/analyticsNEW.css">
 
-    
+
 </head>
 
 <body id="page-top">
   <div id="wrapper">
-    <nav class="navbar shadow align-items-start sidebar text-white accordion p-0">
+    <nav class="navbar shadow align-items-start sidebar text-white accordion p-0" id="sidebar1">
       <div class="container-fluid d-flex flex-column p-0">
-        <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0 px-2 my-3 text-white" href="#">
+        <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand px-2 m-0 text-white" href="#">
           <img class="sidebar-brand-icon" src="assets/img/Logo.png">
           <div class="sidebar-brand-text mx-2">
-            <div class="h5">LegalMind</div>
-            <span class="font-weight-light mb-0 float-right">CORPORATE</span>
+            <div class="h5 m-0 mt-2">LegalMind</div>
+            <span class="font-weight-light float-right text-xs">CORPORATE</span>
           </div>
         </a>
-        <hr class="sidebar-divider my-0">
-              
-        <ul class="nav flex-column mb-0 mt-3" id="accordionSidebar">
+        <ul class="nav flex-column my-4" id="accordionSidebar">
           <li class="nav-item" role="presentation">
             <div class="nav-link font-italic">
               <i class="fa fa-search mr-3 fa-fw"></i>
@@ -55,7 +53,7 @@
           <li class="nav-item" role="presentation">
             <div class="nav-link font-italic">
               <i class="fa fa-gavel mr-3 fa-fw"></i>
-                Provisions/Statutes
+                Provisions / Statutes
             </div>
           </li>
           <li class="nav-item" role="presentation">
@@ -97,9 +95,9 @@
         </ul>
 
 <!--
-              
+
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                  
+
                   <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fa fa-search fa-fw" role="presentation"></i><span class="">Case Laws</span></a></li>
 
                   <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fa fa-gavel fa-fw" role="presentation"></i><span class="">Provisions/Statutes</span></a></li>
@@ -115,14 +113,14 @@
                   <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fa fa-search fa-fw"></i><span class="">Case Laws</span></a></li>
                 </ul>
 -->
-        
-        
+
+
         <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0 bg-light" id="sidebarToggle" type="button"></button></div>
       </div>
       </nav>
       <div class="flex-column" id="content-wrapper">
         <div id="content">
-          <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+          <nav class="navbar navbar-light navbar-expand bg-white topbar static-top">
             <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
               <form autocomplete="off" class="form-inline d-sm-inline-block mr-2 ml-md-3 my-2 my-md-0 navbar-search-large w-100">
                 <div class="input-group autocomplete"><input id="Search" class="bg-light form-control border-0" type="text" placeholder="Search  for cases">
@@ -228,8 +226,8 @@
           </nav>
           <div class="container-fluid" id="page-content">
                 <!-- Start: Chart -->
-            <div class="row m-2 mt-5">
-              <div class="col-lg-8 col-xl-9">
+            <div class="row px-4 py-5 justify-content-around">
+              <div class="col-xl-8">
                 <form id="dropFileForm" action="http://localhost/upload.php" method="post" onsubmit="uploadFiles(event)">
                   <input type="file" name="files[]" id="fileInput" multiple onchange="addFiles(event)">
 
@@ -242,18 +240,18 @@
                     <br>
                     <span id="uploadStatus"></span>
                   </label>
-                        
-                  <input type="submit" value="Upload" class="uploadButton btn btn-primary my-2">
+
+                  <input type="submit" value="Upload" class="uploadButton btn btn-primary my-4">
                 </form>
-                              
+
               </div>
-              <div class="col-lg-4 col-xl-3">
+              <div class="col-lg-3">
                 <div class="card shadow mb-4">
                   <div class="card-header d-flex justify-content-between align-items-center">
                     <h6 class="text-primary font-weight-bold m-0">Sort By</h6>
-                                
+
                   </div>
-                  <div class="m-4"> 
+                  <div class="m-4">
                     <form>
                       <div class="custom-control custom-radio">
                         <input type="radio" class="custom-control-input" id="relevance" name="sort" value="relevance">
@@ -268,7 +266,7 @@
                         <label class="custom-control-label" for="date">Date</label>
                       </div>
                       <div class="mt-4">
-                        <button type="submit" id="sort" class="btn-sm btn-primary px-3">Done</button> 
+                        <button type="submit" id="sort" class="btn-sm btn-primary px-3">Done</button>
                         <button type="submit" id="clear" class="btn-sm btn-danger px-3 ml-2">Clear</button>
                       </div>
                     </form>
@@ -282,7 +280,7 @@
     </div>
   </div>
   <script src="assets/js/script.min.js"></script>
-  <script src="./assets/drag-and-drop-file-uploading/dist/script.js"></script>  
+  <script src="./assets/drag-and-drop-file-uploading/dist/script.js"></script>
 </body>
 
 </html>

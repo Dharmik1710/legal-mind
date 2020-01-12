@@ -4,17 +4,22 @@
   <title>Legalmind-judgement</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <link href="judgement.css" rel="stylesheet">
-  
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 </head>
-    
+
 <body style="background-color: #FDF5F5">
-  
+
 <section>
 <nav class="navbar navbar-dark navbar-expand-sm bg-dark py-3">
   <div class="navbar-brand position-absolute font-weight-bolder">LegalMind</div>
@@ -41,63 +46,107 @@
       </li>
     </ul>
   </div>
-</nav>  
-  
+</nav>
+
 </section>
-  
-  
-  
+
+
+
 <section class="judgeBody">
   <div class="row container-fluid justify-content-around mx-auto my-4">
-    
-    <!--  Buttons on left side-->
-    <div class="col col-2 bg-white btnOpt">
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-outline-secondary w-100 my-2">
-          <input type="checkbox" checked autocomplete="off"> Button 1
+
+    <!-- left side-->
+    <div class="col col-2 p-0" id="leftSidebar">
+
+      <div class="card shadow">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold">Useful Links</h6>
+        </div>
+        <div class="card-body">
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+        </div>
+
+      </div>
+
+      <div class="row btn-group-toggle w-100 m-0" data-toggle="buttons">
+        <label class="btn btn-outline-secondary w-100 my-4">
+          <input type="checkbox" checked autocomplete="off"> Generate Summary
         </label>
       </div>
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-outline-secondary w-100 my-2">
-          <input type="checkbox" checked autocomplete="off"> Button 2
-        </label>
+
+      <div class="card shadow">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold">Useful Links</h6>
+        </div>
+        <div class="card-body">
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+        </div>
       </div>
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-outline-secondary w-100 my-2">
-          <input type="checkbox" checked autocomplete="off"> Button 3
-        </label>
-      </div>
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-outline-secondary w-100 my-2">
-          <input type="checkbox" checked autocomplete="off"> Button 4
-        </label>
-      </div>
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-outline-secondary w-100 my-2">
-          <input type="checkbox" checked autocomplete="off"> Button 5
-        </label>
-      </div>
+
     </div>
 
     <!--  judgement part-->
-    <div class="col col-7 p-4 bg-light judgement">
-      <div id="judgement">
-        <h4 id="caseName" class="text-center mb-5 font-italic">RAJARAM YADAV VS STATE OF BIHAR</h4>
+    <div class="col col-7 bg-light p-0 shadow card" id="judgement">
+      <div class="card-header py-3">
+        <h4 id="caseName" class="text-center mb-4 font-italic">RAJARAM YADAV VS STATE OF BIHAR</h4>
         <div id="court" class="font-weight-bold d-inline-block font-italic">The High Court of Patna</div>
         <div class="float-right font-italic">
-          <div><span class="font-weight-bold">Date&emsp;&emsp;:&emsp; </span><span id="date"></span></div>
-          <div><span class="font-weight-bold">Bench &emsp;:&emsp; </span><span id="bench"></span></div>
+          <div><span class="font-weight-bold">Date&emsp;&emsp;:&emsp; </span><span id="date">Thu Apr 11 1996</span></div>
+          <div><span class="font-weight-bold">Bench &emsp;:&emsp; </span><span id="bench">G.N Ray</span></div>
         </div>
-        <br><br>
-        <hr>
-        <p id="judgementContent"></p>
+      </div>
+      <div class="card-body">
+        <p id="judgementContent"> The   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem.
+         </p>
+
+         <p id="judgementContent"> The   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem.
+          </p>
+
+      </div>
+    </div>
+
+
+    <!--  Right side-->
+    <div class="col col-2 p-0" id="rightSidebar">
+
+      <div class="card shadow">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold">Useful Links</h6>
+        </div>
+        <div class="card-body">
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+        </div>
       </div>
 
-    </div> 
-    
-    <!--  Buttons on left side-->
-    <div class="col col-2 bg-white btnOpt">
-      <div class="btn-group-toggle" data-toggle="buttons">
+      <div class="card shadow mt-5">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold">Useful Links</h6>
+        </div>
+        <div class="card-body">
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+          <div class="my-2"><a href="#">Link to website</a></div>
+        </div>
+      </div>
+
+    </div>
+
+
+      <!-- <div class="btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-outline-secondary w-100 my-2">
           <input type="checkbox" checked autocomplete="off"> Button 1
         </label>
@@ -121,12 +170,13 @@
         <label class="btn btn-outline-secondary w-100 my-2">
           <input type="checkbox" checked autocomplete="off"> Button 5
         </label>
-      </div>
+      </div> -->
     </div>
-    
+
   </div>
-</section>  
-  
-  
-</body>  
-</html>  
+
+</section>
+
+
+</body>
+</html>
