@@ -69,6 +69,7 @@ function partyPopup(ele) {
   // alert(partyListStatsGlobal)
   ele.setAttribute("data-target", "#myModal");
   ele.setAttribute("data-toggle", "modal");
+  document.getElementById("lawyerTableDropdown").classList.add("d-none");
   // document.getElementById("modalTitle").innerHTML = opt.toUpperCase();
 }
 
@@ -77,11 +78,6 @@ function hearingPopup(ele) {
   // alert(partyListStatsGlobal)
   ele.setAttribute("data-target", "#myModal");
   ele.setAttribute("data-toggle", "modal");
-  // document.getElementById("modalTitle").innerHTML = opt.toUpperCase();
-}
-
-function closePopup(btn) {
-  btn.removeAttribute("data-target");
-  btn.removeAttribute("data-toggle");
   document.getElementById("lawyerTableDropdown").classList.add("d-none");
+  // document.getElementById("modalTitle").innerHTML = opt.toUpperCase();
 }

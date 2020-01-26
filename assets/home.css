@@ -95,7 +95,8 @@ input, button, .custom-radio {
 
 
 #accordionSidebar .nav-link:hover{
-  background-image: linear-gradient(to left, #222D7D,#38428a);
+  /* background-image: linear-gradient(to left,#38428a,#38428a); */
+  background-color: #38428a;
   cursor: pointer;
   color: white;
   border-left: 8px solid white;
