@@ -5,91 +5,87 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Dashboard - Brand</title>
+    
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/home.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="./assets/drag-and-drop-file-uploading/dist/style.css">
+    <link rel="stylesheet" href="./assets/loading.css">
+    <link rel="stylesheet" href="./assets/home.css" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
+    <link href="./assets/autocomplete/autocomplete.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/analyticsNEW.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="./assets/drag-and-drop-file-uploading/dist/style.css">
-  <link rel="stylesheet" href="./assets/loading.css">
-  <script src="./assets/home.js"></script>
-  <link rel="stylesheet" href="./assets/home.css" type="text/css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
-  <link href="./assets/autocomplete/autocomplete.css" rel="stylesheet">
-      <!-- Our Custom CSS -->
-  <link rel="stylesheet" href="./assets/analyticsNEW.css">
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./assets/home.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+  
 </head>
-
+<!-- ------------------------------------------------------------------------------------------------------------------------------- -->
 <body id="page-top">
   <div id="wrapper">
-    <nav class="navbar shadow align-items-start sidebar text-white accordion p-0" id="sidebar1">
+    <nav class="navbar shadow align-items-start sidebar text-gray-500 accordion p-0" id="sidebar1">
       <div class="container-fluid d-flex flex-column p-0">
-        <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand px-2 m-0 text-white" href="#">
+        <div class=" d-flex justify-content-center align-items-center sidebar-brand">
           <img class="sidebar-brand-icon" src="assets/img/Logo.png">
           <div class="sidebar-brand-text mx-2">
             <div class="h5 m-0 mt-2">LegalMind</div>
             <span class="font-weight-light float-right text-xs">CORPORATE</span>
           </div>
-        </a>
-        <ul class="nav flex-column my-4" id="accordionSidebar">
+        </div>
+        <ul class="nav flex-column" id="accordionSidebar">
           <li class="nav-item" role="presentation">
             <div class="nav-link font-italic">
-              <i class="fa fa-search mr-3 fa-fw"></i>
-                Case Laws
+              <i class="fa fa-search fa-fw"></i>
+                <span class="menu_item">Case Laws</span>
             </div>
           </li>
           <li class="nav-item" role="presentation">
             <div class="nav-link font-italic">
-              <i class="fa fa-gavel mr-3 fa-fw"></i>
-                Provisions / Statutes
+              <i class="fa fa-gavel fa-fw"></i>
+                <span class="menu_item">Provisions / Statutes</span>
             </div>
           </li>
           <li class="nav-item" role="presentation">
             <div href="#" class="nav-link font-italic">
-              <i class="fa fa-file mr-3 fa-fw"></i>
-                Circulars
+              <i class="fa fa-file fa-fw"></i>
+                <span class="menu_item">Circulars</span>
             </div>
           </li>
           <li class="nav-item" role="presentation">
             <div class="nav-link font-italic">
-              <i class="fa fa-bullseye mr-3 fa-fw"></i>
-                Regulations
+              <i class="fa fa-bullseye fa-fw"></i>
+                <span class="menu_item">Regulations</span>
               </div>
           </li>
           <li class="nav-item" role="presentation">
             <div class="nav-link font-italic">
-              <i class="fa fa-circle mr-3 fa-fw"></i>
-                Guidelines
+              <i class="fa fa-circle fa-fw"></i>
+                <span class="menu_item">Guidelines</span>
             </div>
           </li>
           <li class="nav-item" role="presentation">
             <div onclick="analytics()" class="nav-link font-italic">
-              <i class="fa fa-bar-chart mr-3 fa-fw"></i>
-                Analytics
+              <i class="fa fa-chart-bar fa-fw"></i>
+                <span class="menu_item">Analytics</span>
             </div>
           </li>
           <li class="nav-item" role="presentation">
             <div class="nav-link font-italic">
-              <i class="fa fa-info-circle mr-3 fa-fw"></i>
-                Terms and conditions
+              <i class="fa fa-info-circle fa-fw"></i>
+                <span class="menu_item">Terms and conditions</span>
             </div>
           </li>
           <li class="nav-item" role="presentation">
             <div class="nav-link font-italic">
-              <i class="fa fa-question-circle mr-3 fa-fw"></i>
-                FAQs
+              <i class="fa fa-question-circle fa-fw"></i>
+                <span class="menu_item">FAQs</span>
             </div>
           </li>
         </ul>

@@ -61,7 +61,7 @@ function lawyerPopup(ele) {
   updateTopAndLowLawyersModal(lawyerListStatsGlobal)
   ele.setAttribute("data-target", "#myModal");
   ele.setAttribute("data-toggle", "modal");
-  // document.getElementById("modalTitle") .innerHTML = opt.toUpperCase();
+  document.getElementById("lawyerTableDropdown").classList.remove("d-none");
 }
 
 function partyPopup(ele) {
@@ -83,4 +83,5 @@ function hearingPopup(ele) {
 function closePopup(btn) {
   btn.removeAttribute("data-target");
   btn.removeAttribute("data-toggle");
+  document.getElementById("lawyerTableDropdown").classList.add("d-none");
 }

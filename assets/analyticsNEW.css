@@ -9,8 +9,6 @@ body {
   box-sizing: border-box;
 }
 
-
-
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -27,16 +25,17 @@ body {
   right: 0;
   height: calc(100% - 71px);
   z-index: 999;
-  background-color: white;
-  color: black;
   transition: all 0.5s;
   box-shadow: 1px 1px 3px lightgrey;
   box-sizing: border-box;
   overflow-y: scroll;
+  background-color: white;
+  color: black;  
 }
 
 #sidebar.active {
     margin-right: -250px;
+    text-decoration: none;
 }
 
 #menuButton{
