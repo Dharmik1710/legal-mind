@@ -1,16 +1,19 @@
-//  XMLHttpRequest for analytics page
-var myRequest = new XMLHttpRequest();
-myRequest.open('GET', './assets/analyticsNEW.html');
-myRequest.onreadystatechange = function () {
+function analytics(){
+ 
+  document.querySelector(".topbar").style.display="flex";
+  //  XMLHttpRequest for analytics page
+  var myRequest = new XMLHttpRequest();
+  myRequest.open('GET', './assets/analyticsNEW.html');
+  myRequest.onreadystatechange = function () {
     if (myRequest.readyState === 4) {
       document.getElementById('page-content').innerHTML = myRequest.responseText;
 
-//    loading initial select data script dynamically
+  //  loading initial select data script dynamically
       var newScript = document.createElement("script");
       newScript.src = "./assets/init.js";
       document.getElementById("data_display").appendChild(newScript);
 
-//    loading initial graph data script dynamically
+  //    loading initial graph data script dynamically
       var newScript = document.createElement("script");
       newScript.src = "./assets/graphs.js";
       document.getElementById("data_display").appendChild(newScript);
@@ -23,37 +26,11 @@ myRequest.onreadystatechange = function () {
       newScript.src = "./assets/api.js";
       document.getElementById("data_display").appendChild(newScript);
     }
-};
+  };
 
-//  XMLHttpRequest for analytics page
-var askReq = new XMLHttpRequest();
-askReq.open('GET', './assets/askHarold.html');
-askReq.onreadystatechange = function () {
-    if (askReq.readyState === 4) {
-      document.getElementById('page-content').innerHTML = askReq.responseText;
+  myRequest.send();
 
-//    loading initial select data script dynamically
-      var newScript = document.createElement("script");
-      newScript.src = "./assets/init.js";
-      document.getElementById("data_display").appendChild(newScript);
-
-//    loading initial graph data script dynamically
-      var newScript = document.createElement("script");
-      newScript.src = "./assets/graphs.js";
-      document.getElementById("data_display").appendChild(newScript);
-
-      var newScript = document.createElement("script");
-      newScript.src = "./assets/UpdateUI.js";
-      document.getElementById("data_display").appendChild(newScript);
-
-      var newScript = document.createElement("script");
-      newScript.src = "./assets/api.js";
-      document.getElementById("data_display").appendChild(newScript);
-    }
-};
-
-
-//  XMLHttpRequest for json file getting cards data
+  //  XMLHttpRequest for json file getting cards data
 var req = new XMLHttpRequest();
 req.open('GET', './assets/cards.json');
 req.onreadystatechange = function () {
@@ -69,15 +46,20 @@ req.onreadystatechange = function () {
   }
 };
 
-function analytics(){
-  myRequest.send();
   req.send();
-  document.querySelector(".topbar").style.display="flex";
 }
 
 function askHarold(){
-  askReq.send();
   document.querySelector(".topbar").style.display="none";
+  //  XMLHttpRequest for askArnold.html page
+  var askReq = new XMLHttpRequest();
+  askReq.open('GET', './assets/askHarold.html');
+  askReq.onreadystatechange = function () {
+      if (askReq.readyState === 4) {
+        document.getElementById('page-content').innerHTML = askReq.responseText;
+      }
+  };
+  askReq.send();
 }
 
 var searchArray = ['search1', 'search 2', 'search 3', 'search 4', 'search 5', 'search 6', 'search 7'];

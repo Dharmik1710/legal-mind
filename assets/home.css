@@ -26,8 +26,6 @@ html {
   height: 70px;
 }
 
-
-
 .toggled .fa::before{
   font-size: 20px;
   position: absolute;
@@ -49,6 +47,10 @@ html {
   position: fixed;
   display: block;
   width: 224px;
+}
+
+.toggled .sidebar-brand{
+  width: 104px !important;
 }
 
 #sidebar1 ul{
