@@ -61,7 +61,7 @@ function lawyerPopup(ele) {
   updateTopAndLowLawyersModal(lawyerListStatsGlobal)
   ele.setAttribute("data-target", "#myModal");
   ele.setAttribute("data-toggle", "modal");
-  document.getElementById("lawyerTableDropdown").classList.remove("d-none");
+  // document.getElementById("lawyerTableDropdown").classList.remove("d-none");
 }
 
 function partyPopup(ele) {
@@ -69,7 +69,7 @@ function partyPopup(ele) {
   // alert(partyListStatsGlobal)
   ele.setAttribute("data-target", "#myModal");
   ele.setAttribute("data-toggle", "modal");
-  document.getElementById("lawyerTableDropdown").classList.add("d-none");
+  // document.getElementById("lawyerTableDropdown").classList.add("d-none");
   // document.getElementById("modalTitle").innerHTML = opt.toUpperCase();
 }
 
@@ -78,6 +78,6 @@ function hearingPopup(ele) {
   // alert(partyListStatsGlobal)
   ele.setAttribute("data-target", "#myModal");
   ele.setAttribute("data-toggle", "modal");
-  document.getElementById("lawyerTableDropdown").classList.add("d-none");
+  // document.getElementById("lawyerTableDropdown").classList.add("d-none");
   // document.getElementById("modalTitle").innerHTML = opt.toUpperCase();
 }
