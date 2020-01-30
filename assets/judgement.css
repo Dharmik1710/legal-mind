@@ -30,24 +30,22 @@
 }
 
 #judgement{
-  height: 763px;
+  height: calc(100% - 58px);
   margin-left: 270px;
   position: fixed;
   top: 58px;
 }
 
 #judgement .card-body{
-  /* position: relative;
-  top: 150px; */
   overflow: auto;
 }
 
 #leftSidebar {
   width: 270px;
   position: fixed;
-  top: 59px;
+  top: 58px;
   left: 0;
-  height: calc(100% - 59px);
+  height: calc(100% - 58px);
   z-index: 999;
   background-color: white;
   color: black;
@@ -55,13 +53,9 @@
   overflow-y: scroll;
 }
 
-#leftSidebar .collapsed{
-  
+div .card-body{
+  background-color: #fff;
 }
-
-/* #judgement .card-header{
-  position: fixed;
-} */
 
 #judgement p{
   text-align: justify;
