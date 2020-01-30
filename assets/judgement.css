@@ -1,6 +1,8 @@
 .navbar{
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
+  position: fixed;
+  top: 0;
 }
 
 .nav-link{
@@ -30,14 +32,18 @@
 #judgement{
   height: 763px;
   margin-left: 270px;
+  position: fixed;
+  top: 58px;
 }
 
 #judgement .card-body{
+  /* position: relative;
+  top: 150px; */
   overflow: auto;
 }
 
 #leftSidebar {
-  width: 285px;
+  width: 270px;
   position: fixed;
   top: 59px;
   left: 0;
@@ -49,12 +55,15 @@
   overflow-y: scroll;
 }
 
-#leftSidebar #menu{
-  width: 285px;
-  margin: 0;
-  position: relative;
+#leftSidebar .collapsed{
+  
 }
+
+/* #judgement .card-header{
+  position: fixed;
+} */
 
 #judgement p{
   text-align: justify;
 }
+

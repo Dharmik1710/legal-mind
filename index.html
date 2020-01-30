@@ -96,27 +96,6 @@
           </li>
         </ul>
 
-<!--
-
-                <ul class="nav navbar-nav text-light" id="accordionSidebar">
-
-                  <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fa fa-search fa-fw" role="presentation"></i><span class="">Case Laws</span></a></li>
-
-                  <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fa fa-gavel fa-fw" role="presentation"></i><span class="">Provisions/Statutes</span></a></li>
-
-                  <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fa fa-bell fa-fw" role="presentation"></i><span class="">Notifications</span></a></li>
-
-                  <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fa fa-bullseye fa-fw" role="presentation"></i><span class="">Regulations</span></a></li>
-
-                  <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fa fa-search fa-fw" role="presentation"></i><span class="">Case Laws</span></a></li>
-
-                  <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fa fa-search fa-fw"></i><span class="">Case Laws</span></a></li>
-
-                  <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fa fa-search fa-fw"></i><span class="">Case Laws</span></a></li>
-                </ul>
--->
-
-
         <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0 bg-light" id="sidebarToggle" type="button"></button></div>
       </div>
       </nav>
@@ -229,7 +208,7 @@
                 <form id="dropFileForm" action="http://localhost/upload.php" method="post" onsubmit="uploadFiles(event)">
                   <input type="file" name="files[]" id="fileInput" multiple onchange="addFiles(event)">
                   <label for="fileInput" id="fileLabel" ondragover="overrideDefault(event);fileHover();" ondragenter="overrideDefault(event);fileHover();" ondragleave="overrideDefault(event);fileHoverEnd();" ondrop="overrideDefault(event);fileHoverEnd(); addFiles(event);">
-                    <img class="" src="/assets/img/dragAndDrop.png">
+                    <img class="" src="assets/img/dragAndDrop.png">
                     <div id="fileLabelText" class="my-3">
                       <h6>Drag & Drop any Document</h6>
                       <div class="text-gray-600">
@@ -289,12 +268,12 @@
                   <hr>
 
                   <div data-toggle="collapse" data-target="#collapseCourt" aria-expanded="true" aria-controls="collapseCourt" class="text-gray-600 collapsed">Courts<span><i class="fa fa-angle-right float-right px-3"></i></span></div>
-                  <div id="collapseCourt" class="options text-gray-800 collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                  <div id="collapseCourt" class="options text-gray-800 collapse" aria-labelledby="headingPages" data-parent="#sidebar">
                     <div class="py-2 mt-3 collapse-inner">
                       
                     </div>
                   </div>
-                  <hr> 
+                  <hr>
 
                   <h6 class="text-gray-600">Year of Judgement</h6>
                   <div class="options my-3 text-gray-800 text-right">
