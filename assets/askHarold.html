@@ -2,17 +2,71 @@
     <style>
 
         .display-1{
-            color: rgba(34,45,125);
-            font-family: roboto;
+            color: gray;
         }
+        
+        .logo{
+            height: 70px;
+            width: 70px;
+            filter: invert(80%);
+        }
+
+        .link{
+            color: gray;
+            text-decoration: none !important;
+        }
+
+        .link:hover{
+            color: gray;
+        }
+
+        .uline{
+            display: none;
+            width: 40%;
+            border: 1px solid gray;
+        }
+
+        .active .uline{
+            display: block;
+        }
+
+
     </style>
 </head>
 
 <body class="bg-light">
     <div class="text-center justify content-center py-4">
-        <div class="display-1">Harold AI</div>
+        <div class="display-1">Har<span><img class="logo" src="assets/img/Logo.ico"></span>ld AI</div>
         <div class="input-group autocomplete col-8 mx-auto my-4"><input id="ask" class="bg-light form-control" autofocus="autofocus" type="text" placeholder="">
             <div class="input-group-append"><button class="btn btn-primary py-0" type="button">Ask</button></div>
         </div>
+        <div class="container">
+            <ul class="nav mx-auto justify-content-center">
+                <li class="active">
+                    <a class="link" href="#">ALL</a>
+                    <div class="uline mx-auto"></div>
+                </li>
+                <span class="mx-2 text-secondary">|</span>
+                <li>
+                    <a class="link" href="#">JUDGEMENTS</a>
+                    <div class="uline mx-auto"></div>
+                </li>
+                <span class="mx-2 text-secondary">|</span>
+                <li>
+                    <a class="link" href="#">PROVISIONS</a>
+                    <div class="uline mx-auto"></div>
+                </li>
+                <span class="mx-2 text-secondary">|</span>
+                <li>
+                    <a class="link" href="#">REGULATIONS</a>
+                    <div class="uline mx-auto"></div>
+                </li>
+                <span class="mx-2 text-secondary">|</span>
+                <li>
+                    <a class="link" href="#">OTHERS</a>
+                    <div class="uline mx-auto"></div>
+                </li>
+            </ul>
+          </div>
     </div>
 </body>

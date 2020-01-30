@@ -28,19 +28,33 @@
 }
 
 #judgement{
-  height: 710px;
+  height: 763px;
+  margin-left: 270px;
 }
 
 #judgement .card-body{
   overflow: auto;
 }
 
-#leftSidebar .card{
-  display: block;
-  height: 312px;
+#leftSidebar {
+  width: 285px;
+  position: fixed;
+  top: 59px;
+  left: 0;
+  height: calc(100% - 59px);
+  z-index: 999;
+  background-color: white;
+  color: black;
+  transition: all 0.5s;
+  overflow-y: scroll;
 }
 
-#rightSidebar .card{
-  display: block;
-  height: 330px;
+#leftSidebar #menu{
+  width: 285px;
+  margin: 0;
+  position: relative;
+}
+
+#judgement p{
+  text-align: justify;
 }

@@ -4,15 +4,17 @@
   overflow: hidden;
   transition: 0.5s;
   box-sizing: border-box;
+  border: 1px dashed grey;
 }
 
 #dropFileForm #fileLabel {
-  background-color: lightgray;
+  background-color: white;
   display: block;
-  padding: 150px;
+  padding: 50px;
   position: relative;
   cursor: pointer;
   border-radius: 8px;
+  margin-bottom: 0;
 }
 
 #dropFileForm #fileInput {
@@ -63,4 +65,36 @@
 
 #dropFileForm.fileHover {
   border: 1px dashed black;
+}
+
+#partition div{
+  width: 30%; 
+  text-align: center; 
+  border-bottom: 1px solid gray; 
+  line-height: 0.1em;
+  margin: 40px 35%;
+}
+
+#partition div span { 
+  background:#fff; 
+  padding:0 10px; 
+}
+
+#fileLabel img{
+  height: 100px;
+  width: 100px;
+}
+
+#guidelines ul{
+  list-style-type: none;
+  padding: 8px 0 10px;
+  margin: 0;
+  list-style: "✓   ";
+  margin: 0 40px;
+}
+
+#guidelines ul li{
+  padding: 5px 0;
+  width: 50%;
+  float: left;
 }

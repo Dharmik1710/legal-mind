@@ -94,8 +94,6 @@ input, button, .custom-radio {
   box-shadow:none !important;
 }
 
-
-
 #accordionSidebar .nav-link:hover{
   /* background-image: linear-gradient(to left,#38428a,#38428a); */
   background-color: #38428a;
@@ -114,4 +112,16 @@ input, button, .custom-radio {
 
 .vertical_nav{
   box-shadow: 3px 3px 10px rgba(34,45,125, 0.5);
+}
+
+#caseLawContent{
+  margin-right: 280px;
+}
+
+#caseLawContent nav#sidebar{
+  width: 295px;
+}
+
+#caseLawContent #menu{
+  width: 235px;
 }
