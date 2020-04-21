@@ -10,13 +10,13 @@
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/drag-and-drop-file-uploading/dist/style.css">
     <link rel="stylesheet" href="./assets/loading.css">
     <link rel="stylesheet" href="./assets/home.css" type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
-    <link href="./assets/autocomplete/autocomplete.css" rel="stylesheet">
+    <!-- <link href="./assets/autocomplete/autocomplete.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="./assets/analyticsNEW.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -25,18 +25,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
-  
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script> -->
 </head>
-<!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+
 <body id="page-top">
-  <div id="wrapper">
-    <nav class="navbar shadow align-items-start sidebar text-gray-500 accordion p-0" id="sidebar1">
-      <div class="container-fluid d-flex flex-column p-0">
+  <div>
+    <nav class="shadow navbar p-0 align-items-start sidebar text-gray-500 accordion" id="leftSidebar">
+      <div class="d-flex flex-column p-0">
         <div class="d-flex justify-content-center align-items-center sidebar-brand py-0">
-          <img class="sidebar-brand-icon" src="assets/img/Logo.png">
-          <div class="sidebar-brand-text mx-2">
-            <div class="h5 m-0 mt-2">LegalMind</div>
-            <span class="font-weight-light float-right text-xs">CORPORATE</span>
+          <img class="sidebar-brand-icon" src="assets/img/lm-logo.png">
+          <div class="sidebar-brand-text m-2">
+            <div class="h5 m-0">LegalMind</div>
+            <!-- <div class="font-weight-light float-right text-xs">CORPORATE</div> -->
+            
+              <div class="nav-item dropdown m-0 no-arrow" role="presentation">
+                <div class="dropdown-toggle p-0 text-decoration-none text-white font-weight-light text-xs float-right pr-1" id="sub-brand" data-toggle="dropdown" aria-expanded="false" href="#">Corporate</div>
+                <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in mt-4" role="menu" id="popup-sub-brand">
+                  <div class="dropdown-item text-xs" role="presentation">Corporate</div>
+                  <div class="dropdown-item text-xs" role="presentation">ibc</div>
+                  <div class="dropdown-item text-xs" role="presentation">Antitrust</div>
+                  <div class="dropdown-item text-xs" role="presentation" href="#">Company Law</div>
+                  <div class="dropdown-item text-xs" role="presentation" href="#">Taxation</div>
+                  <div class="dropdown-item text-xs" role="presentation" href="#">Supreme Court</div>
+                </div>
+              </div>
+
           </div>
         </div>
         <ul class="nav flex-column" id="accordionSidebar">
@@ -53,33 +67,33 @@
             </div>
           </li>
           <li class="nav-item" role="presentation">
-            <div href="#" class="nav-link font-italic">
+            <div href="#" class="nav-link font-italic" onclick="cirRegGuide()">
               <i class="fa fa-file fa-fw"></i>
                 <span class="menu_item">Circulars</span>
             </div>
           </li>
           <li class="nav-item" role="presentation">
-            <div class="nav-link font-italic">
+            <div class="nav-link font-italic" onclick="cirRegGuide()">
               <i class="fa fa-bullseye fa-fw"></i>
                 <span class="menu_item">Regulations</span>
               </div>
           </li>
           <li class="nav-item" role="presentation">
-            <div class="nav-link font-italic">
+            <div class="nav-link font-italic" onclick="cirRegGuide()">
               <i class="fa fa-circle fa-fw"></i>
                 <span class="menu_item">Guidelines</span>
             </div>
           </li>
           <li class="nav-item" role="presentation">
-            <div onclick="analytics()" class="nav-link font-italic">
+            <div class="nav-link font-italic" onclick="analytics()">
               <i class="fa fa-chart-bar fa-fw"></i>
                 <span class="menu_item">Analytics</span>
             </div>
           </li>
           <li class="nav-item" role="presentation">
-            <div class="nav-link font-italic">
+            <div class="nav-link font-italic" onclick="tandc()">
               <i class="fa fa-info-circle fa-fw"></i>
-                <span class="menu_item">Terms and conditions</span>
+                <span class="menu_item">Terms of service</span>
             </div>
           </li>
           <li class="nav-item" role="presentation">
@@ -89,28 +103,28 @@
             </div>
           </li>
           <li class="nav-item" role="presentation">
-            <div onclick="askHarold()" class="nav-link font-italic">
+            <div class="nav-link font-italic" onclick="askHarold()">
               <i class="fa fa-question fa-fw"></i>
                 <span class="menu_item">Ask Harold</span>
             </div>
           </li>
         </ul>
 
-        <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0 bg-light" id="sidebarToggle" type="button"></button></div>
+        <div class="text-center d-none d-md-inline"><button class="btn rounded-circle bg-light" id="sidebarToggle" type="button"></button></div>
       </div>
       </nav>
+<!-- ------------------------------------------------------------------------------------------------------------------------------- -->      
       <div class="flex-column" id="content-wrapper">
         <div id="content">
-
-
           <nav class="navbar navbar-light navbar-expand bg-white topbar static-top">
             <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-              <form autocomplete="off" class="form-inline d-sm-inline-block mx-4 my-2 navbar-search-large w-100">
-                <div class="input-group autocomplete"><input id="Search" class="bg-light form-control border-0" type="text" placeholder="Search for cases">
+              <form class="form-inline d-sm-inline-block mx-4 my-2 navbar-search-large w-100">
+                <div class="input-group">
+                  <input id="Search" class="bg-light form-control border-0" type="text" placeholder="Search for cases">
                   <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fa fa-fw fa-search"></i></button></div>
                 </div>
               </form>
-              <script src="./assets/autocomplete/autocomplete.js"></script>
+              <!-- <script src="./assets/autocomplete/autocomplete.js"></script> -->
 
               <ul class="nav navbar-nav flex-nowrap ml-auto">
                 <li class="nav-item dropdown no-arrow mx-1" role="presentation">
@@ -201,8 +215,8 @@
 
 
 
-          <div class="container-fluid p-0" id="page-content">
-                <!-- Start: Chart -->
+          <div id="page-content">
+            <!-- Start: Chart -->
             <div class="p-5 justify-content-around" id="caseLawContent">
               <div class="rounded">
                 <form id="dropFileForm" action="http://localhost/upload.php" method="post" onsubmit="uploadFiles(event)">
@@ -288,93 +302,9 @@
                     <button type="submit" class="btn-sm btn-primary">Submit</button>
                   </div> 
                   <hr>   
-                  
-                  <!-- <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                  </a>
-                  <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                      <h6 class="collapse-header">Login Screens:</h6>
-                      <a class="collapse-item" href="login.html">Login</a>
-                      <a class="collapse-item" href="register.html">Register</a>
-                      <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                      <div class="collapse-divider"></div>
-                      <h6 class="collapse-header">Other Pages:</h6>
-                      <a class="collapse-item" href="404.html">404 Page</a>
-                      <a class="collapse-item active" href="blank.html">Blank Page</a>
-                    </div>
-                  </div> -->
-                  <!-- <div class="options mt-4">
-                    <select class="chosen" onchange="dispJudge(this)" id="judge">
-                      <option selected>Judge</option>
-                    </select>
-                  </div>
-                  <div class="options mt-4" id="lawyerNameParent">
-                    <select class="chosen" id="lawyerName">
-                      <option selected>Lawyer Name</option>
-                    </select>
-                  </div>
-                  <div class="options mt-4">
-                    <select class="chosen" id="pracArea">
-                      <option selected>Pratice Area</option>
-                    </select>
-                  </div>
-                  <div class="options mt-4">
-                    <select class="chosen" id="partyName">
-                      <option selected>Party Name</option>
-                    </select>
-                  </div>
-                  <div class="options mt-4">
-                    <select class="chosen" id="provisions">
-                      <option selected>Provisions</option>
-                    </select>
-                  </div>
-                  <div class="options mt-4" id="caseTypeParent">
-                    <select class="chosen" id="caseType">
-                      <option selected>Case Type</option>
-                    </select>
-                  </div>
-                  <div class="form-inline mx-auto justify-content-around mt-4" id="Year">
-                    <input type="text" class="form-control-sm col-4" placeholder="From" id="fromYrPicker">
-                    <input type="text" class="form-control-sm col-4" placeholder="To" id="toYrPicker">
-                  </div>
-
-                  <input type="text" class="form-control-sm mt-4 col-10" placeholder="Add Statutes"> -->
-                  
                 </div>
               </nav>
-
-              <!-- <div class="col-lg-3">
-                <div class="card shadow mb-4">
-                  <div class="card-header d-flex justify-content-between align-items-center">
-                    <h6 class="text-primary font-weight-bold m-0">Sort By</h6>
-
-                  </div>
-                  <div class="m-4">
-                    <form>
-                      <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="relevance" name="sort" value="relevance">
-                        <label class="custom-control-label" for="relevance">Relevance</label>
-                      </div>
-                      <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="mostRecent" name="sort" value="relevance">
-                        <label class="custom-control-label" for="mostRecent">Most Recent</label>
-                      </div>
-                      <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="date" name="sort" value="date">
-                        <label class="custom-control-label" for="date">Date</label>
-                      </div>
-                      <div class="mt-4">
-                        <button type="submit" id="sort" class="btn-sm btn-primary px-3">Done</button>
-                        <button type="submit" id="clear" class="btn-sm btn-danger px-3 ml-2">Clear</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div> -->
             </div>
-            <!-- End: Chart -->
           </div>
         </div>
     </div>
