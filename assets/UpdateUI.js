@@ -269,15 +269,12 @@ var updateInsightsIbc = {
     0: ['hearingMinCount', 'hearingMaxCount'], 
     1: [ 'bankInvocationYes', 'bankInvocationNo'],
     2: ['withdrawalOfPlanYes', 'withdrawalOfPlanNo'],
-    3: ['ocDisputeYes', 'ocDisputeNo'], 
-    4: ['defaultByFCYes', 'defaultByFCNo'], 
-    5: ['replacementOfRPYes', 'replacementOfRPNo'], 
-    6: ['rejectionOfPlanYes', 'rejectionOfPlanNo'], 
-    7: ['yesId1', 'noId1'],
-    8: ['yesId2', 'noId2'],
-    9: ['yesId3', 'noId3'],
-    10: ['yesId4', 'noId4'],
-    11: ['yesId5', 'noId5'],
+    3: ['yesId1', 'noId1'],
+    4: ['yesId2', 'noId2'],
+    5: ['ocDisputeYes', 'ocDisputeNo'], 
+    6: ['defaultByFCYes', 'defaultByFCNo'], 
+    7: ['replacementOfRPYes', 'replacementOfRPNo'], 
+    8: ['rejectionOfPlanYes', 'rejectionOfPlanNo'], 
 };
 
 $("#popup-sub-brand div").click(function(){
