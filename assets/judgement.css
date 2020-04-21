@@ -1,8 +1,6 @@
 .navbar{
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
-  position: fixed;
-  top: 0;
 }
 
 .nav-link{
@@ -32,12 +30,10 @@
 #judgement{
   height: calc(100% - 58px);
   margin-left: 270px;
-  position: fixed;
+  position: relative;
   top: 58px;
-}
-
-#judgement .card-body{
-  overflow: auto;
+  padding: 50px 150px;
+  width: calc(100% - 270px);
 }
 
 #leftSidebar {
@@ -53,11 +49,22 @@
   overflow-y: scroll;
 }
 
-div .card-body{
-  background-color: #fff;
-}
-
 #judgement p{
   text-align: justify;
 }
 
+#case-meta li{
+  color: #848796;
+}
+
+#case-meta .active{
+  border-bottom: 4px solid darkblue;
+  color: #6F6F7E;
+}
+
+#judgementBody{
+  font-family: 'Rajdhani', sans-serif;
+  color: black;
+  word-spacing: 2pt;
+  line-height: 2rem;
+}

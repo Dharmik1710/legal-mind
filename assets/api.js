@@ -1,4 +1,4 @@
-let rootUrl = "https://scraper.legalmind.tech:8041"
+let rootUrl = "https://api.legalmind.tech:8041"
 // let rootUrl = "http://0.0.0.0:8044"
 
 isIncludeCost = null
@@ -14,8 +14,14 @@ $("#court").change(function () {
         judges = supremeCourtJudges
     } else if (court == "NCLAT") {
         judges = chairpersonCourtJudges
-    } else if (court == "NCLT") {
-        processGetAllJudges({ "court": court })
+    } else if (court.includes("NCLT")) {
+        updateJudgeNamesData("")
+        benchPlace = getBenchPlaceNCLT(court)
+
+        if (benchPlace != "")
+            processGetAllJudges({ court: "NCLT", benchPlace: benchPlace })
+        else
+            processGetAllJudges({ court: "NCLT" })
     }
 
     $("#judge").chosen();
@@ -31,14 +37,6 @@ $("#court").change(function () {
     }
 
     $('#judge').trigger('chosen:updated');
-
-    // processGetAllRelatedLawyersRequest(reqData = {
-    //     "court": court
-    // })
-
-    // processGetAllPartyName(reqData = {
-    //     "court": court
-    // })
 })
 
 $("#judge").change(function () {
@@ -46,7 +44,7 @@ $("#judge").change(function () {
     let judgeName = $(this).val() == "Judge" ? null : $(this).val()
     let lawyerName = $("#lawyerName").val() == "Lawyer Name" ? null : $("#lawyerName").val()
     let pracArea = $("#pracArea").val() == "Pratice Area" ? null : $("#pracArea").val()
-    // let partyName = $("#partyName").val() == "Party Name" ? null : $("#partyName").val()
+    let partyName = $("#partyName").val() == "Party Name" ? null : $("#partyName").val()
     let provisions = $("#provisions").val() == "Provisions" ? null : $("#provisions").val()
 
     reqData = {
@@ -56,24 +54,20 @@ $("#judge").change(function () {
         "lawyerName": lawyerName,
         "praticeArea": pracArea,
         "overuled": isOverulled,
-        // "partyName": partyName,
+        "partyName": partyName,
         "provisions": provisions
     }
-    console.log(reqData)
+
+    if (court.includes("NCLT") && court != "NCLT") {
+        benchPlace = getBenchPlaceNCLT(court)
+        reqData.benchPlace = benchPlace
+        reqData.court = "NCLT"
+    }
+
+    // console.log(reqData)
     processGetAllGraphs(reqData)
     processGetAllJudgeData(reqData)
 
-    // getIsProOC
-    // processGetTopAndLowLayers(reqData)
-    // processGetAllFilterData(reqData)
-
-    // processGetJudgeDataRequest(reqData)
-    // if (!lawyerName)
-    //     processGetAllRelatedLawyersRequest(reqData)
-    // if (!pracArea)
-    //     processGetAllPraticeArea(reqData)
-
-    // processGetTopAndLowLayers(reqData)
 });
 
 function processGetAllGraphs(reqData) {
@@ -94,9 +88,10 @@ function processGetAllGraphs(reqData) {
                 updateIsOveruleGraph(data.overuledDoughnutData)
                 updateCountYearGraph(data.verdictBarData)
                 updatePraticeAreaGraph(data.praticeAreaPieData)
+                updateCitationGraph(data.citationBarData)
                 document.getElementById("fullScreenLoader").style.display = "none";
 
-                processGetTopAndLowLayers(reqData)
+                processTableStats(reqData)
                 processGetAllFilterData(reqData)
             } else {
                 // Handle error case
@@ -106,8 +101,8 @@ function processGetAllGraphs(reqData) {
     req.send(JSON.stringify(reqData));
 }
 
-function processGetAllJudgeData(reqData){
-    let url = `${rootUrl}/JudgeData/getIsProOC`;
+function processGetAllJudgeData(reqData) {
+    let url = `${rootUrl}/JudgeData/getJudgeData`;
 
     let req = new XMLHttpRequest();
     req.open("POST", url, true);
@@ -117,7 +112,15 @@ function processGetAllJudgeData(reqData){
         if (req.readyState === 4) {
             if (req.status >= 200 && req.status < 400) {
                 data = JSON.parse(req.responseText);
-                updateIsProOC(data.isProOC)
+                updateCount(data.totalJudgments)
+                updateHearingMinMaxCount(data.hearingMinMax)
+                updateIsProOC(data.isProOC, data.isProFC)
+                updateWithdrawalOfPlan(data.withdrawalOfPlan)
+                updateBankInvocationCount(data.bankInvocation)
+                updateOCDispute(data.ocDispute)
+                updateDefaultByFC(data.defaultByFC)
+                updateReplacementOfRP(data.replacementOfRP)
+                updateRejectionOfPlan(data.rejectionOfPlan)
             } else {
                 // Handle error case
             }
@@ -139,6 +142,7 @@ function processGetAllFilterData(reqData) {
                 data = JSON.parse(req.responseText);
                 updatePraticeAreasData(data.praticeAreas)
                 updateLawyersData(data.lawyerNames)
+                updatePartyNames(data.partyNames)
                 updateProvisionsData(data.allSections)
                 document.getElementById("fullScreenLoader").style.display = "none";
             } else {
@@ -152,7 +156,7 @@ function processGetAllFilterData(reqData) {
 function processGetAllJudges(reqData) {
     document.getElementById("fullScreenLoader").style.display = "block";
 
-    let url = `${rootUrl}/getJudges`;
+    let url = `${rootUrl}/JudgeData/getAllJudgesName`;
 
     let req = new XMLHttpRequest();
     req.open("POST", url, true);
@@ -162,7 +166,7 @@ function processGetAllJudges(reqData) {
         if (req.readyState === 4) {
             if (req.status >= 200 && req.status < 400) {
                 data = JSON.parse(req.responseText);
-                updateJudgeNamesData(data)
+                updateJudgeNamesData(data.allJudgesName)
                 document.getElementById("fullScreenLoader").style.display = "none";
             } else {
                 // Handle error case
@@ -264,7 +268,7 @@ function processGetAllPartyName(reqData) {
     req.send(JSON.stringify(reqData));
 }
 
-function processGetTopAndLowLayers(reqData) {
+function processTableStats(reqData) {
     // document.getElementById("fullScreenLoader").style.display = "block";
 
     let url = `${rootUrl}/tableData/getAllStats`;
@@ -277,12 +281,22 @@ function processGetTopAndLowLayers(reqData) {
         if (req.readyState === 4) {
             if (req.status >= 200 && req.status < 400) {
                 data = JSON.parse(req.responseText);
-                // updateTopAndLowLawyersModal(data.lawyersStats)
+                // updateSrLawyersModal(data.lawyersStats)
+                srLawyerListStatsGlobal = data.srLawyersStats
                 lawyerListStatsGlobal = data.lawyersStats
                 partyListStatsGlobal = data.partyStats
                 hearingListStatsGlobal = data.hearingStats
-                // alert(lawyerListStatsGlobal)
-                // updatePartyStatsModal(data.lawyersStats)
+                if (reqData.court == "NCLT")
+                    updateSrLawyersPreviewTable(lawyerListStatsGlobal)
+                else
+                    updateSrLawyersPreviewTable(srLawyerListStatsGlobal)
+
+                updateLawyersModal(lawyerListStatsGlobal)
+                updatePartyStatsPreviewTable(partyListStatsGlobal)
+                updateHearingStatsTable(hearingListStatsGlobal)
+
+
+
                 // document.getElementById("fullScreenLoader").style.display = "none";
             } else {
                 // Handle error case
@@ -317,3 +331,98 @@ $("#pracArea").change(function () {
 $("#provisions").change(function () {
     $("#judge").change()
 });
+
+
+// $("#searchInput").change(function () {
+$("#Search").on('input', function (e) {
+    let court = $("#court").val()
+    let judgeName = $(this).val() == "Judge" ? null : $(this).val()
+    let lawyerName = $("#lawyerName").val() == "Lawyer Name" ? null : $("#lawyerName").val()
+    let pracArea = $("#pracArea").val() == "Pratice Area" ? null : $("#pracArea").val()
+    // let partyName = $("#partyName").val() == "Party Name" ? null : $("#partyName").val()
+    let provisions = $("#provisions").val() == "Provisions" ? null : $("#provisions").val()
+
+    reqData = {
+        "court": court,
+        "judgeName": judgeName,
+        "isIncludeCost": isIncludeCost,
+        "lawyerName": lawyerName,
+        "praticeArea": pracArea,
+        "overuled": isOverulled,
+        // "partyName": partyName,
+        "provisions": provisions,
+        "search": $(this).val()
+    }
+
+    processGetSearchResults(reqData)
+});
+
+
+//Search Api
+function processGetSearchResults(reqData) {
+    // document.getElementById("fullScreenLoader").style.display = "block";
+    let url = `${rootUrl}/search/fuzzySearch`;
+
+    let req = new XMLHttpRequest();
+    req.open("POST", url, true);
+    req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    req.onreadystatechange = function () {
+        if (req.readyState === 4) {
+            if (req.status >= 200 && req.status < 400) {
+                data = JSON.parse(req.responseText);
+                updateSearchResults(data.fuzzySearchResults)
+                // document.getElementById("fullScreenLoader").style.display = "none";
+            } else {
+                // Handle error case
+            }
+        }
+    };
+    req.send(JSON.stringify(reqData));
+}
+
+function getBenchPlaceNCLT(court) {
+    benchPlace = ""
+
+    if (court.includes("Principle"))
+        benchPlace = "principal_bench"
+    else if (court.includes("New Delhi II"))
+        benchPlace = "New_Delhi_Bench"
+    else if (court.includes("New Delhi III"))
+        benchPlace = "New_Delhi_Bench_III"
+    else if (court.includes("New Delhi Bench IV"))
+        benchPlace = "New_Delhi_Bench_IV"
+    else if (court.includes("Registrar NCLT"))
+        benchPlace = "registrar_NCLT"
+    else if (court.includes("Ahemdabad"))
+        benchPlace = "ahmedabad_bench"
+    else if (court.includes("Allahabad"))
+        benchPlace = "allahabad_bench"
+    else if (court.includes("Bengaluru"))
+        benchPlace = "bengluru_bench"
+    else if (court.includes("Chandigarh"))
+        benchPlace = "chandigarh_bench"
+    else if (court.includes("Chennai"))
+        benchPlace = "chennai_bench"
+    else if (court.includes("Guhawati"))
+        benchPlace = "guwahati_bench"
+    else if (court.includes("Hyderabad"))
+        benchPlace = "hyderabad_bench"
+    else if (court.includes("Kolkata"))
+        benchPlace = "kolkata_bench"
+    else if (court.includes("Mumbai"))
+        benchPlace = "mumbai_bench"
+    else if (court.includes("Jaipur"))
+        benchPlace = 'jaipur_bench'
+    else if (court.includes("Cuttack"))
+        benchPlace = 'cuttack_bench'
+    else if (court.includes("New Delhi Bench V"))
+        benchPlace = "New_Delhi_Bench_V"
+    else if (court.includes("New Delhi Bench VI"))
+        benchPlace = "New_Delhi_Bench_VI"
+    else if (court.includes("Amaravati"))
+        benchPlace = "amaravati_bench"
+
+
+    return benchPlace
+}

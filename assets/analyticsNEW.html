@@ -1,29 +1,32 @@
 <!DOCTYPE html>
+
 <body>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
   <div class="loading" id="fullScreenLoader" style="display: none">Loading&#8230;</div>
 
 
-    <div class="wrapper p-4">
-        <!-- Sidebar  -->
-        <nav id="sidebar" class="row shadow">
-          <div id="menuButton">
-            <button type="button" id="sidebarCollapse" class="btn bg-light w-100">
-                <i class="fas fa-sliders"></i>
-            </button>
-          </div>
-          <div id="menu" class="my-4">
+  <div class="wrapper p-4">
+    <!-- Sidebar  -->
+    <nav id="sidebar" class="row shadow active">
+      <div id="menuButton">
+        <button type="button" id="sidebarCollapse" class="btn w-100 fa-border btn-light p-2">
+          <i class="fa fa-lg fa-sliders"></i>
+        </button>
+      </div>
+      <div id="menu" class="my-4">
 
         <div class="text-gray-600">
           <h5>PREFERENCES</h5>
         </div>
         <div class="options mt-5">
-          <select class="chosen" onchange="dispCourt(this)" id="court">
+          <select class="chosen" id="court">
             <option selected>Court</option>
           </select>
         </div>
 
         <div class="options mt-4">
-          <select class="chosen" onchange="dispJudge(this)" id="judge">
+          <select class="chosen" id="judge">
             <option selected>Judge</option>
           </select>
         </div>
@@ -63,342 +66,257 @@
           <input type="text" class="form-control form-control-sm col-4" placeholder="To" id="toYrPicker">
         </div>
 
-        <input type="text" class="form-control-sm form-control mx-auto mt-4 col-10" placeholder="Add Statutes">
+        <div class="form-group mx-auto mt-4 d-flex justify-content-center"><input type="text" class="form-control form-control-sm col-10" placeholder="Add Statutes"></div>
         <button type="submit" class="btn-sm btn-primary px-3 mx-2 mt-4">Submit</button>
         <button type="submit" class="btn-sm btn-danger px-3 mx-2 mt-4">Clear</button>
+        <button type="submit" id="showInsights" class="btn-sm btn-secondary px-3 mx-2 mt-4">Insigths</button>
 
 
 
-          </div>
-        </nav>
-
-        <!-- Page Content  -->
-        <div id="cont">
-          <div class="row">
-
-<!--        info cards-->
-
-            <div class="col-xl-4 col-md-6 mb-4">
-              <div class="card border-left-info shadow py-2 h-100">
-                <div class="card-body text-center">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-s font-weight-bold text-info text-uppercase mb-4">Total Count</div>
-                      <div class="row">
-                        <div class="h4 col font-weight-bold text-gray-800">--</div>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calculator fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-md-6 mb-4">
-              <div class="card border-left-warning shadow py-2">
-                <div class="card-body text-center">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-s font-weight-bold text-warning text-uppercase mb-4">Hearings</div>
-                      <div class="row">
-                        <div class="mb-0 col-6 font-weight-bold text-gray-500">Minimum<br><span class="h4 text-gray-800">--</span></div>
-                        <div class="mb-0 col-6 font-weight-bold text-gray-500">Minimum<br><span class="h4 text-gray-800">--</span></div>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calculator fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-md-6 mb-4">
-              <div class="card border-left-success shadow py-2">
-                <div class="card-body text-center">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-s font-weight-bold text-success text-uppercase mb-4">Costs</div>
-                      <div class="row">
-                        <div class="mb-0 col-6 font-weight-bold text-gray-500">Minimum<br><span class="h4 text-gray-800">--</span></div>
-                        <div class="mb-0 col-6 font-weight-bold text-gray-500">Minimum<br><span class="h4 text-gray-800">--</span></div>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calculator fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
       </div>
+    </nav>
 
+    <!-- Page Content  -->
+    <div id="cont" class="active">
+      <div class="rpw mx-auto">
 
-    <div class="row" id="data_display">
-
-      <div class="col-lg-12 mt-4">
-<!--         Area Chart -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Number of case in each practice area</h6>
-          </div>
-          <div class="card-body">
-            <div class="chart-area">
-                <canvas id="chart2"></canvas>
-            </div>
+        <!--  info cards-->
+        <div class="col-12 text-white insights my-3">
+          <div class="p-0 justify-content-between d-flex">
+            <div class="rounded w-100 p-3 strip-head">Total cases</div> 
+            <div class="justify-content-between text-center d-flex ml-4 strip-body">
+              <div class="py-3 px-4 bg-primary rounded strip-single" id="judgementCount">1000</div>
+            </div>    
           </div>
         </div>
-      </div>
+        <!-- <div class="text-white insights mb-3 justify-content-between d-flex">
+            <div class="rounded p-3 strip-head">Total cases</div> 
+            <div class="strip-body text-center justify-content-between">
+              <div class="p-3 bg-primary rounded strip-single">45000</div>
+            </div>    
+        </div> -->
 
-
-      <div class="col-4 mt-4">
-<!--         Area Chart -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Verdict Type Graph</h6>
+        <div id='insights' class="col-12 p-0"></div>
+        
+        <!-- <div class="col-12 text-white insights my-3">
+          <div class="p-0 justify-content-between d-flex">
+            <div class="rounded w-100 p-3 strip-head">Range of no. Of Hearings</div> 
+            <div class="justify-content-between d-flex ml-2 strip-body">
+              <div class="py-3 px-4 bg-primary rounded strip-pos">45</div>
+              <div class="py-3 px-4 bg-danger rounded strip-neg ml-2">23</div>
+            </div>    
           </div>
-          <div class="card-body">
-            <div class="chart-area">
-                <canvas id="verdictTypeGraph"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 mt-4">
-<!--         Area Chart -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Cost Graph</h6>
-          </div>
-          <div class="card-body">
-            <div class="chart-area">
-                <canvas id="costGraph"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 mt-4">
-<!--         Area Chart -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Overule Graph</h6>
-          </div>
-          <div class="card-body">
-            <div class="chart-area">
-                <canvas id="overuleGraph"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-12 mt-4">
-<!--         Area Chart -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Bubble Graph</h6>
-          </div>
-          <div class="card-body">
-            <div class="chart-area">
-                <canvas id="bubbleChart"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-12 mt-4">
-<!--         Area Chart -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Case map will be generated here</h6>
-          </div>
-          <div class="card-body">
-            <div class="chart-area">
-                <canvas id="chart1"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
+        </div> -->
     </div>
 
-    <div class="card shadow my-4" id="lawyerTable">
-      <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Lawyer Table</h6>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-              <tr>
-                <th>Lawyer Name</th>
-                <th>Lawyer Wins</th>
-                <th>Lawyer Losses</th>
-                <th>Winning Percentage</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-              </tr>
-              <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-              </tr>
-              <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-              </tr>
-            </tbody>
-          </table>
+    <div class="row mx-auto" id="data_display">
+
+      <div class="col-8 p-3">
+        <div class="card shadow graph">
+          <div class="card-header py-2">
+            <div class="font-weight-bold text-primary mh-100">Verdict Stats Over Year<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="chart1"></canvas>
+            </div>
+          </div>
         </div>
-        <div class="float-right"><a href="#" onclick="lawyerPopup(this)" id="lawyerStats">Priview complete table</a></div>
-
       </div>
-    </div>
 
-
-    <div class="card shadow my-5" id="partyTable">
-      <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Party Table</h6>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-              <tr>
-                <th>Lawyer Name</th>
-                <th>Lawyer Wins</th>
-                <th>Lawyer Losses</th>
-                <th>Winning Percentage</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-              </tr>
-              <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-              </tr>
-              <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="col-4 p-3">
+        <div class="card shadow graph">
+          <div class="card-header py-2">
+            <div class="m-0 font-weight-bold text-primary">Verdict Type Graph<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="verdictTypeGraph"></canvas>
+            </div>
+          </div>
         </div>
-        <div class="float-right"><a href="#" onclick="partyPopup(this)" id="partyStats">Priview complete table</a></div>
-
       </div>
-    </div>
 
-
-    <div class="card shadow my-5" id="hearingTable">
-      <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Hearing Table</h6>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-              <tr>
-                <th>Lawyer Name</th>
-                <th>Lawyer Wins</th>
-                <th>Lawyer Losses</th>
-                <th>Winning Percentage</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-              </tr>
-              <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-              </tr>
-              <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="col-8 p-3">
+        <div class="card shadow graph">
+          <div class="card-header py-2">
+            <div class="m-0 font-weight-bold text-primary">Citation Graph<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="citationChart"></canvas>
+            </div>
+          </div>
         </div>
-        <div class="float-right"><a href="#" onclick="hearingPopup(this)" id="partyStats">Priview complete table</a></div>
-
       </div>
-    </div>
 
+      <div class="col-4 p-3">
+        <div class="card shadow graph">
+          <div class="card-header py-2">
+            <div class="m-0 font-weight-bold text-primary">Overule Graph<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="overruleGraph"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4 p-3">
+        <div class="card shadow h-100 graph">
+          <div class="card-header py-2">
+            <div class="m-0 font-weight-bold text-primary">Case in practice area<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="praticeAreaChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-8 p-3">
+        <div class="card shadow h-100" id="lawyerTable">
+          <div class="card-header py-2">
+            <div class="m-0 font-weight-bold text-primary">Lawyer Stats</div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="lawyerStatsPreview" class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Lawyer Name</th>
+                    <th>Lawyer Wins</th>
+                    <th>Lawyer Losses</th>
+                    <th>Lawyer Winning %</th>
+                  </tr>
+                </thead>
+                <tbody id="lawyerStatsPreviewBody">
+                </tbody>
+              </table>
+            </div>
+            <div class="float-right"><a href="#" onclick="srLawyerPopup(this)" id="lawyerStats">Preview Single Senior
+                Lawyers Stats</a> </div>
+            <br>
+            <div class="float-right"><a href="#" onclick="lawyerPopup(this)" id="lawyerStats">Preview All Lawyers
+                Stats</a> </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-6 p-3">  
+        <div class="card shadow h-100" id="partyTable">
+          <div class="card-header py-2">
+            <div class="m-0 font-weight-bold text-primary">Party Stats</div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="partyStatsPreview" class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Party Name</th>
+                    <th>Party Wins</th>
+                    <th>Party Losses</th>
+                    <th>Party Winning %</th>
+                  </tr>
+                </thead>
+                <tbody id="partyStatsPreviewBody">
+                </tbody>
+              </table>
+            </div>
+            <div class="float-right"><a href="#" onclick="partyPopup(this)" id="partyStats">Preview complete table</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  
+      <div class="col-6 p-3">
+        <div class="card shadow h-100" id="hearingTable">
+          <div class="card-header py-2">
+            <div class="m-0 font-weight-bold text-primary">Hearing Stats</div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="hearingStatsPreview" class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Judge Name</th>
+                    <th>Less than 2</th>
+                    <th>Less than 4</th>
+                    <th>More than equal to 4</th>
+                  </tr>
+                </thead>
+                <tbody id="hearingStatsPreviewBody">
+                </tbody>
+              </table>
+            </div>
+            <div class="float-right"><a href="#" onclick="hearingPopup(this)" id="partyStats">Preview complete table</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-12 p-3">
+        <div class="card shadow mb-4 graph">
+          <div class="card-header py-2">
+            <div class="m-0 font-weight-bold text-primary">Cost Graph<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="costGraph"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
 
     <!-- Popup code -->
-            <div class="modal fade" aria-labelledby="myLargeModalLabel" id="myModal">
-              <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                <div class="modal-content">
-                  <!-- Modal Header -->
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="modalTitle"></h4>
-                    <select name="cars" class="custom-select col-4" id="lawyerTableDropdown">
-                      <option selected>Custom Select Menu</option>
-                      <option value="option1">option1</option>
-                      <option value="option2">option2</option>
-                      <option value="option3">option3</option>
-                    </select>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  </div>
-                  <!-- Modal body -->
-                  <div class="modal-body">
-                    <table id="topLawyersTable" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th id="th1">Lawyer Name</th>
-                          <th  id="th2">Lawyer Wins</th>
-                          <th id="th3">Lawyer Losses</th>
-                          <th id="th4">Winning Percentage</th>
-                        </tr>
-                      </thead>
-                      <tbody id="topLawyersTableBody">
-                      </tbody>
-                    </table>
-                  </div>
-                  <!-- Modal footer -->
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"
-                      data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-<!--    Search cards      -->
-          <div class="mt-5 mx-auto" id="cards"></div>
+    <div class="modal fade" aria-labelledby="myLargeModalLabel" id="myModal">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title" id="modalTitle"></h4>
+            <select name="cars" class="custom-select col-4" id="lawyerTableDropdown">
+              <option selected>Custom Select Menu</option>
+              <option value="option1">option1</option>
+              <option value="option2">option2</option>
+              <option value="option3">option3</option>
+            </select>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <table id="statsTable" class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th id="th1">Lawyer Name</th>
+                  <th id="th2">Lawyer Wins</th>
+                  <th id="th3">Lawyer Losses</th>
+                  <th id="th4">Winning Percentage</th>
+                </tr>
+              </thead>
+              <tbody id="srLawyersTableBody">
+              </tbody>
+            </table>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="closePopup(this)"
+              data-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
+    </div>
+
+
+    <!--    Search cards      -->
+    <div class="mx-auto px-3" id="cards"></div>
+  </div>
   </div>
 
 </body>

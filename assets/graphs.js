@@ -20,12 +20,10 @@ var yearCountChart = new Chart(c1, {
 
 	// Configuration options go here
 	options: {
-   maintainAspectRatio: false,
- }
+		maintainAspectRatio: false,
+	}
 });
-
-
-var c2 = document.getElementById("chart2").getContext('2d');
+var c2 = document.getElementById("praticeAreaChart").getContext('2d');
 var praticeAreaChart = new Chart(c2, {
 	type: 'doughnut',
 	data: {
@@ -37,14 +35,13 @@ var praticeAreaChart = new Chart(c2, {
 		}]
 	},
 	options: {
-   maintainAspectRatio: false,
+		maintainAspectRatio: false,
 		title: {
 			display: true,
 			text: 'No Of Case In Each Pratice Area'
 		}
 	}
 });
-
 
 
 var costGraphElement = document.getElementById("costGraph").getContext('2d');
@@ -60,7 +57,7 @@ var costGraph = new Chart(costGraphElement, {
 		]
 	},
 	options: {
-    maintainAspectRatio: false,
+		maintainAspectRatio: false,
 		title: {
 			display: true,
 			text: 'Is Cost Involved Or Not'
@@ -81,16 +78,12 @@ var verdictTypeGraph = new Chart(verdictTypeGraphElement, {
 		]
 	},
 	options: {
-    maintainAspectRatio: false,
-		title: {
-			display: true,
-			text: 'verdictTypeGraph'
-		}
+		maintainAspectRatio: false,
 	}
 });
 
-var overuleGraphElement = document.getElementById("overuleGraph").getContext('2d');
-var overuleGraph = new Chart(overuleGraphElement, {
+var overuleGraphElement = document.getElementById("overruleGraph").getContext('2d');
+var overruleGraph = new Chart(overuleGraphElement, {
 	type: 'doughnut',
 	data: {
 		labels: ["True", "False"],
@@ -102,7 +95,7 @@ var overuleGraph = new Chart(overuleGraphElement, {
 		]
 	},
 	options: {
-    maintainAspectRatio: false,
+		maintainAspectRatio: false,
 		title: {
 			display: true,
 			text: 'Is Overuled Or Not'
@@ -110,148 +103,30 @@ var overuleGraph = new Chart(overuleGraphElement, {
 	}
 });
 
-var data = [{
-	x: 2017,
-	y: 4,
-	r: 10
-}, {
-	x: 2017,
-	y: 14,
-	r: 12
-},
-{
-	x: 2017,
-	y: 10,
-	r: 10
-},
-{
-	x: 2016,
-	y: 12,
-	r: 11
-},
-{
-	x: 2018,
-	y: 10,
-	r: 17
-},
-{
-	x: 2019,
-	y: 4,
-	r: 20
-},
-{
-	x: 2018,
-	y: 5,
-	r: 14
-},
-{
-	x: 2019,
-	y: 8,
-	r: 10
-},
-{
-	x: 2016,
-	y: 12,
-	r: 8
-}]; // Add data values to array
+var citationChartElemtent = document.getElementById("citationChart").getContext('2d');
+var citationChart = new Chart(citationChartElemtent, {
+	type: 'horizontalBar',
+	data: {
+		labels: ['2006', '2007', '2008', '2009', '2010'],
+		datasets: [{
+			label: 'Verdict Stats Will Be Displayed Here',
+			fillColor: "#1d4fb2",
+			strokeColor: "#1d4fb2",
+			pointColor: "#1d4fb2",
+			pointStrokeColor: "#fff",
+			pointHighlightFill: "#fff",
+			pointHighlightStroke: "#1d4fb2",
+			// backgroundColor:"#1d4fb2",
+			data: [43, 50, 52, 58, 49]
+		}]
+	},
 
-// var data = [
-// 	{
-// 		label: ["China"],
-// 		backgroundColor: "rgba(255,221,50,0.2)",
-// 		borderColor: "rgba(255,221,50,1)",
-// 		data: [{
-// 			x: 21269017,
-// 			y: 5.245,
-// 			r: 15
-// 		}]
-// 	}, {
-// 		label: ["Denmark"],
-// 		backgroundColor: "rgba(60,186,159,0.2)",
-// 		borderColor: "rgba(60,186,159,1)",
-// 		data: [{
-// 			x: 258702,
-// 			y: 7.526,
-// 			r: 10
-// 		}]
-// 	}, {
-// 		label: ["Germany"],
-// 		backgroundColor: "rgba(0,0,0,0.2)",
-// 		borderColor: "#000",
-// 		data: [{
-// 			x: 3979083,
-// 			y: 6.994,
-// 			r: 15
-// 		}]
-// 	}, {
-// 		label: ["Japan"],
-// 		backgroundColor: "rgba(193,46,12,0.2)",
-// 		borderColor: "rgba(193,46,12,1)",
-// 		data: [{
-// 			x: 4931877,
-// 			y: 5.921,
-// 			r: 15
-// 		}]
-// 	}]
-
-var myBubbleChartElemtent = document.getElementById("bubbleChart").getContext('2d');
-var myBubbleChart = new Chart(myBubbleChartElemtent, {
-	type: 'bubble',
-    data: {
-      labels: "Africa",
-      datasets: [
-        {
-          label: ["Positive"],
-          backgroundColor: "#1d4fb2",
-          borderColor: "#1d4fb2",
-          data: [{
-            x: 2018,
-            y: 10,
-            r: 15
-		  },
-		  {
-            x: 2019,
-            y: 15.245,
-            r: 15
-          },
-		  {
-            x: 2019,
-            y: 1,
-            r: 15
-          }]
-        }, {
-          label: ["Negative"],
-          backgroundColor: "#dc3545",
-          borderColor: "#dc3545",
-          data: [{
-            x: 2017,
-            y: 7.526,
-            r: 10
-		  },
-		  {
-            x: 2018,
-            y: 17.526,
-            r: 10
-          },
-		  {
-            x: 2019,
-            y: 15.245,
-            r: 15
-          },
-		  {
-            x: 2017,
-            y: 15.245,
-            r: 15
-          }]
-        }
-      ]
-    },
-    options: {
-      maintainAspectRatio: false,
-      title: {
-        display: true,
-        text: 'CaseMap'
-
-      }
-    }
+	// Configuration options go here
+	options: {
+		maintainAspectRatio: false,
+		scales: {
+			yAxes: [{ ticks: { mirror: true, padding: -10 } }]
+		},
+		responsive: true,
+	}
 });

@@ -11,15 +11,16 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
-<body style="background-color: #FDF5F5">
+<body style="background-color: #F5F5F5"onload="getJudgementData()">
 
 <section>
-<nav class="navbar navbar-dark navbar-expand-sm bg-dark py-3">
+<nav class="navbar navbar-dark navbar-expand-sm bg-dark py-3 fixed-top" id="main-navbar">
   <div class="navbar-brand position-absolute font-weight-bolder">LegalMind</div>
   <div class="container justify-content-center">
     <ul class="nav navbar-nav mx-auto">
@@ -56,66 +57,58 @@
 
         <div data-toggle="collapse" data-target="#collapsePast" aria-expanded="true" aria-controls="collapsePast" class="p-3 collapsed">Past Orders<span><i class="fa fa-angle-right float-right px-3"></i></span></div>
         <div id="collapsePast" class="options collapse" aria-labelledby="headingPages" data-parent="#leftSidebar">
-          <div class="px-4 pb-2 collapse-inner text-gray-600">
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
+          <div class="px-4 pb-2 collapse-inner text-gray-600" id="pastHearingBody">
           </div>
         </div>
 
         <div data-toggle="collapse" data-target="#collapseCited" aria-expanded="true" aria-controls="collapseCited" class="p-3 collapsed">Cited acts<span><i class="fa fa-angle-right float-right px-3"></i></span></div>
         <div id="collapseCited" class="options collapse" aria-labelledby="headingPages" data-parent="#leftSidebar">
-          <div class="px-4 pb-2 collapse-inner text-gray-600">
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
+          <div class="px-4 pb-2 collapse-inner text-gray-600" id="citationBody">
           </div>
         </div>
         
         <div data-toggle="collapse" data-target="#collapseLaws" aria-expanded="true" aria-controls="collapseLaws" class="p-3 collapsed">Cited case laws<span><i class="fa fa-angle-right float-right px-3"></i></span></div>
         <div id="collapseLaws" class="options collapse" aria-labelledby="headingPages" data-parent="#leftSidebar">
-          <div class="px-4 pb-2 collapse-inner text-gray-600">
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
+          <div class="px-4 pb-2 collapse-inner text-gray-600" id="actBody">
           </div>
         </div>
 
         <div data-toggle="collapse" data-target="#collapseSimilar" aria-expanded="true" aria-controls="collapseSimilar" class="p-3 collapsed">Similar cases<span><i class="fa fa-angle-right float-right px-3"></i></span></div>
         <div id="collapseSimilar" class="options collapse" aria-labelledby="headingPages" data-parent="#leftSidebar">
           <div class="px-4 pb-2 collapse-inner text-gray-600">
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
-            <div class="p-2">link 1</div>
           </div>
         </div>
 
     </nav>
     <!--  judgement part-->
-    <div class="bg-light card" id="judgement">
-      <div class="card-header shadow py-3 px-5">
-        <div class="text-center"><h4 id="caseName" class="p-2 rounded d-inline-block text-center mb-3 bg-white shadow font-italic">RAJARAM YADAV VS STATE OF BIHAR</h4></div>
-        <div id="court" class="font-weight-bold d-inline-block font-italic">The High Court of Patna</div>
-        <div class="float-right font-italic">
-          <div><span class="font-weight-bold">Date&emsp;&emsp;:&emsp; </span><span id="date">Thu Apr 11 1996</span></div>
-          <div><span class="font-weight-bold">Bench &emsp;:&emsp; </span><span id="bench">G.N Ray</span></div>
-        </div>
+    <div class="" id="judgement">
+      <div class="case-head">
+        <div class="h2 text-uppercase" id="caseTitle">Rajaram Yadav Vs State of Bihar</div>
+        <div id="subs-case-head"  class="text-xs text-gray-700 text-uppercase">writ petition no. 1569 of 2016 and writ no. 1977 of 2016 &emsp;<span class="float-right">06-02-2020</span></div>
       </div>
-      <div class="card-body p-5">
-        <p id="judgementContent">  learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor such  conviction  in  view  of  death  sentence  awardedagainst them. The   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor such  conviction  in  view  of  death  sentence  awardedagainst them. awardedfor such  conviction  in  view  of  death  sentence  awardedagainst them. awardedfor such  conviction  in  view  of  death  sentence  awardedagainst them. awardedfor such  conviction  in  view  of  death  sentence  awardedagainst them. awardedfor such  conviction  in  view  of  death  sentence  awardedagainst them.
-         </p>
-
-         <p id="judgementContent"> The   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem.
-          </p>
-
+      <div class="my-5 d-flex">
+          <ul class="col-1 list-unstyled">
+            <li><i class="fa fa-2x pb-2 fa-envelope-square"></i></li>
+            <li><i class="fa fa-2x pb-2 fa-edit"></i></li>
+            <li><i class="fa fa-2x fa-clipboard"></i></li>          
+          </ul>
+          <div>
+            <div id="case-meta" class="mb-5">
+              <ul class="list-unstyled d-flex m-0">
+                <li class="px-4 py-2 active"><a>Bench</a></li>
+                <li class="px-4 py-2"><a>Citation</a></li>
+                <li class="px-4 py-2"><a>Advocates</a></li>
+              </ul>
+              <hr class="m-0">
+              <div class="my-3 text-uppercase text-gray-700">hon'ble justice r.d dhanuka</div>
+            </div>
+            <div class="h5 text-gray-800">JUDGEMENT</div>
+            <hr class="m-0">
+            <div class="mt-4" id="ncltJudgementBody">
+                <p id="judgementBody">The   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor sThe   learned   fourth   Additional   Sessions   Judge.Aurangabad  by   his  judgment   dated  September  30,  1992convicted Ram  Pravesh Yadav, Keswar Yadav, Jag Narain YadavChandradeep Yadav,  Chintaman Yadav  and Brahamdeo Yadav forthe offence  of murder   and awarded  death sentence  againstthem. They  were also convicted under Section 148 IPC but noseparate sentence  was passed for such offence. All the saideight accused  were further convicted under Section 436 readwith Section  149 IPC  but no  separate sentence was awardedfor such  conviction  in  view  of  death  sentence  awardedagainst them.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     </div>
@@ -124,5 +117,6 @@
 </section>
 
 <script src="js/script.min.js"></script>
+<script src="js/Judgement.js"></script>
 </body>
 </html>

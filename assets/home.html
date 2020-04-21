@@ -1,172 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>Legalmind-home</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="./drag-and-drop-file-uploading/dist/style.css">
-  <link rel="stylesheet" href="loading.css">
-  <script src="home.js"></script>
-  <link rel="stylesheet" href="home.css" type="text/css">  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet">
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
-
-    
 </head>
-    
 <body>
-
-<section>
-  <!-- Vertical navbar -->
-  <div class="vertical-nav" id="sidebar">
-    <div class="py-4 px-3 mb-4">
-      <div class="media d-flex align-items-center">
-        <div class="media-body">
-          <h2 class="m-0" style="font-size: 2em;">LegalMind</h2>
-          <p class="font-weight-light text-muted mb-0">CORPORATE</p>
-        </div>
-      </div>
-    </div>
-
-    <ul class="nav flex-column mb-0">
-      <li class="nav-item">
-        <div class="nav-link font-italic" onclick="console.log('Dhaarmik')">
-                  <i class="fa fa-search mr-3 fa-fw"></i>
-                  Case Laws
-              </div>
-      </li>
-      <li class="nav-item">
-        <div class="nav-link font-italic">
-                  <i class="fa fa-gavel mr-3 fa-fw"></i>
-                  Provisions/Statutes
-              </div>
-      </li>
-      <li class="nav-item">
-        <div href="#" class="nav-link font-italic">
-                  <i class="fa fa-file mr-3 fa-fw"></i>
-                  Circulars
-              </div>
-      </li>
-      <li class="nav-item">
-        <div class="nav-link font-italic">
-                  <i class="fa fa-bell mr-3 fa-fw"></i>
-                  Notifications
-              </div>
-      </li>
-      <li class="nav-item">
-        <div class="nav-link font-italic">
-                  <i class="fa fa-bullseye mr-3 fa-fw"></i>
-                  Regulations
-              </div>
-      </li>
-      <li class="nav-item">
-        <div class="nav-link font-italic">
-                  <i class="fa fa-circle mr-3 fa-fw"></i>
-                  Guidelines
-              </div>
-      </li>
-      <li class="nav-item">
-        <div onclick="analytics()" class="nav-link font-italic">
-                  <i class="fa fa-bar-chart mr-3 fa-fw"></i>
-                  Analytics
-        </div>
-      </li>
-      <li class="nav-item">
-        <div class="nav-link font-italic">
-                  <i class="fa fa-info-circle mr-3 fa-fw"></i>
-                  Terms and conditions
-              </div>
-      </li>
-      <li class="nav-item">
-        <div class="nav-link font-italic">
-                  <i class="fa fa-question-circle mr-3 fa-fw"></i>
-                  FAQs
-              </div>
-      </li>
-    </ul>
-
+  <div class="p-5 h-100">
+    <canvas id="test"></canvas>
   </div>
-  
-  <!-- End vertical navbar -->
-</section>
-
-<section>
-
-  <!-- Page content holder -->
-  <div class="page-content p-4" id="content">    
-    
-    <!--  Search on top-->
-    <div class="input-group md-form form-sm form-2 pl-0">
-      <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search for cases" aria-label="Search">
-      <div class="input-group-append">
-        <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey"
-            aria-hidden="true"></i></span>
-      </div>
-    </div>
-    
-    <div class="row mx-auto mt-5 justify-content-around">  
-      <div class="col col-8 px-0">
-        <!--  Drag and drop file-->
-        <form id="dropFileForm" action="http://localhost/upload.php" method="post" onsubmit="uploadFiles(event)">
-          <input type="file" name="files[]" id="fileInput" multiple onchange="addFiles(event)">
-
-          <label for="fileInput" id="fileLabel" ondragover="overrideDefault(event);fileHover();" ondragenter="overrideDefault(event);fileHover();" ondragleave="overrideDefault(event);fileHoverEnd();" ondrop="overrideDefault(event);fileHoverEnd();
-                addFiles(event);">
-            <i class="fa fa-download fa-5x"></i>
-            <br>
-            <span id="fileLabelText">
-              Choose a file or drag it here
-            </span>
-            <br>
-            <span id="uploadStatus"></span>
-          </label>
-
-          <input type="submit" value="Upload" class="uploadButton btn btn-primary">
-        </form>
-      </div>
-      
-      <!-- sorting options-->
-      <div class="col col-3 bg-light mb-5 float-right sortOpt">
-        <div class="m-3">
-          <h5>Sort by</h5>
-          <div class="mt-4">
-            <form>
-              <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="relevance" name="sort" value="relevance">
-                <label class="custom-control-label" for="relevance">Relevance</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="mostRecent" name="sort" value="relevance">
-                <label class="custom-control-label" for="mostRecent">Most Recent</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="date" name="sort" value="date">
-                <label class="custom-control-label" for="date">Date</label>
-              </div>
-              <div class="mt-4">
-                <button type="submit" id="sort" class="btn-sm btn-primary px-3">Done</button> 
-                <button type="submit" id="clear" class="btn-sm btn-danger px-3 ml-2">Clear</button>
-              </div>
-            </form>
-          </div>          
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-<script src="./drag-and-drop-file-uploading/dist/script.js"></script>  
-</section>
-  
+  <script>
+    var c = document.getElementById('test').getContext('2d');
+    var gObj = JSON.parse(localStorage.getItem('temp'));
+    gObj.options.title['fontSize']=30;
+    new Chart(c, gObj);
+  </script>
 </body>
 </html>

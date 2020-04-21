@@ -4,12 +4,10 @@ html{
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
   background: #fafafa;
   box-sizing: border-box;
 }
-
-
 
 /* ---------------------------------------------------
     SIDEBAR STYLE
@@ -18,25 +16,6 @@ body {
 .wrapper {
     display: flex;
     width: 100%;
-}
-
-#sidebar {
-  width: 290px;
-  position: fixed;
-  top: 71px;
-  right: 0;
-  height: calc(100% - 71px);
-  z-index: 999;
-  background-color: white;
-  color: black;
-  transition: all 0.5s;
-  box-shadow: 1px 1px 3px lightgrey;
-  box-sizing: border-box;
-  overflow-y: scroll;
-}
-
-#sidebar.active {
-    margin-right: -250px;
 }
 
 #menuButton{
@@ -239,4 +218,31 @@ fieldset
 input, button, .custom-radio {
   outline: none;
   box-shadow:none !important;
+}
+
+.insights .strip-head{
+  background-color:  #1f2971 ;
+  /* width: 66%; */
+}
+
+.strip-single{
+  width: 210px;
+}
+
+.strip-pos, .strip-neg{
+  width: 100px;
+}
+
+/* .insights .strip-body{
+  width: 31%;
+} */
+
+/* .strip-body .strip-neg, .strip-body .strip-pos{
+  width: 50%;
+  display: inline-flex;
+} */
+
+.table th{
+  font-size: 13px;
+  color: DodgerBlue;
 }
