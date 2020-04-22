@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./assets/home.css" type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
-    <!-- <link href="./assets/autocomplete/autocomplete.css" rel="stylesheet"> -->
+    <link href="./assets/autocomplete/autocomplete.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/analyticsNEW.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -25,8 +25,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
 </head>
 
 <body id="page-top">
@@ -124,7 +124,6 @@
                   <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fa fa-fw fa-search"></i></button></div>
                 </div>
               </form>
-              <!-- <script src="./assets/autocomplete/autocomplete.js"></script> -->
 
               <ul class="nav navbar-nav flex-nowrap ml-auto">
                 <li class="nav-item dropdown no-arrow mx-1" role="presentation">
@@ -202,12 +201,10 @@
                   <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
                 </li>
                 <div class="d-none d-sm-block topbar-divider"></div>
-                <li class="nav-item dropdown no-arrow" role="presentation">
-                  <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Valerie Luna</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg"></a>
-                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
-                      <a class="dropdown-item" role="presentation" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
-                      <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
-                    </div>
+                <li class="nav-item mx-2 my-auto" role="presentation">
+                  <div class="nav-item">
+                    <div type="button" class="btn btn-primary" data-toggle="modal" data-target="#lextimatesModal" id="Lextimates" >Lextimates</div>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -309,6 +306,40 @@
         </div>
     </div>
   </div>
+
+  <div class="modal fade" id="lextimatesModal" tabindex="-1" role="dialog" aria-labelledby="lextimates" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h5 class="modal-title">Modal title</h5> -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="lextimates-body d-flex justify-content-around my-4">
+              <div class="rounded-circle"><span class="number">65%</span></div>
+              <div class="d-inline col-9 lextimates-text">Appeals in these matters are dismissed.</div>
+            </div>
+            <div class="lextimates-body d-flex justify-content-around my-4">
+              <div class="rounded-circle"><span class="number">29%</span></div>
+              <div class="col-9 lextimates-text"> Litigation costs being imposed </div>
+            </div>
+            <div class="lextimates-body d-flex justify-content-around my-4">
+              <div class="rounded-circle"><span class="number">5</span></div>
+              <div class="col-9 lextimates-text">Average no of hearing in these matters</div>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="assets/js/script.min.js"></script>
   <script src="./assets/drag-and-drop-file-uploading/dist/script.js"></script>
 </body>
