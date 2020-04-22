@@ -26,6 +26,13 @@ function updateHearingMinMaxCount(hearingMinMaxCount) {
     $("#hearingMaxCount").html(hearingMinMaxCount.maxHearing)
 }
 
+function updateIsProOC(isProOC, isProFC) {
+    $("#proOC").html(isProOC.yes + ":" + isProOC.no)
+    $("#proFC").html(isProFC.yes + ":" + isProFC.no)
+    setYesNoInsight("ProOCyes","ProOCno", isProOC.yes, isProOC.no)
+    setYesNoInsight("ProFCyes","ProFCno", isProFC.yes, isProFC.no)
+}
+
 function updateBankInvocationCount(bankInvocationCount) {
     setYesNoInsight("bankInvocationYes","bankInvocationNo", bankInvocationCount.yes, bankInvocationCount.no)
 }
@@ -65,11 +72,11 @@ var insights = {
 };
 
 var updateInsightsIbc = {
-    0: ['hearingMinCount', 'hearingMaxCount'], 
-    1: [ 'bankInvocationYes', 'bankInvocationNo'],
+    0: ['ProFCyes', 'ProFCno'], 
+    1: ['ProOCyes', 'ProOCno'],
     2: ['withdrawalOfPlanYes', 'withdrawalOfPlanNo'],
     3: ['yesId1', 'noId1'],
-    4: ['yesId2', 'noId2'],
+    4: [ 'bankInvocationYes', 'bankInvocationNo'],
     5: ['ocDisputeYes', 'ocDisputeNo'], 
     6: ['defaultByFCYes', 'defaultByFCNo'], 
     7: ['replacementOfRPYes', 'replacementOfRPNo'], 
@@ -602,25 +609,6 @@ function updateHearingStatsModal(hearingList) {
             [1, "desc"]
         ]
     });
-}
-
-
-function updateIsProOC(isProOC, isProFC) {
-    // if (isProOC) {
-    //     $("#proOC").html("Yes")
-    // } else {
-    //     $("#proOC").html("No")
-    // }
-
-    $("#proOC").html(isProOC.yes + ":" + isProOC.no)
-
-    // if (isProFC) {
-    //     $("#proFC").html("Yes")
-    // } else {
-    //     $("#proFC").html("No")
-    // }
-
-    $("#proFC").html(isProFC.yes + ":" + isProFC.no)
 }
 
 function updateCaseTypeData(caseTypeData) {
