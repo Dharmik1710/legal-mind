@@ -163,7 +163,7 @@
         </div>
       </div>
 
-      <div class="col-4 p-3">
+      <div class="col-4 p-3" style="display: none;">
         <div class="card shadow h-100 graph">
           <div class="card-header py-2">
             <div class="m-0 font-weight-bold text-primary">Case in practice area<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
@@ -175,6 +175,20 @@
           </div>
         </div>
       </div>
+
+      <div class="col-4 p-3">
+        <div class="card shadow h-100 graph">
+          <div class="card-header py-2">
+            <div class="m-0 font-weight-bold text-primary">Cost Graph<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="costGraph"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <div class="col-8 p-3">
         <div class="card shadow h-100" id="lawyerTable">
@@ -205,7 +219,7 @@
         </div>
       </div>
   
-      <div class="col-6 p-3">  
+      <div class="col-6 p-3" style="display: none;">  
         <div class="card shadow h-100" id="partyTable">
           <div class="card-header py-2">
             <div class="m-0 font-weight-bold text-primary">Party Stats</div>
@@ -232,7 +246,7 @@
       </div>
       
   
-      <div class="col-6 p-3">
+      <div class="col-12 p-3">
         <div class="card shadow h-100" id="hearingTable">
           <div class="card-header py-2">
             <div class="m-0 font-weight-bold text-primary">Hearing Stats</div>
@@ -258,19 +272,6 @@
         </div>
       </div>
   
-      <div class="col-12 p-3">
-        <div class="card shadow mb-4 graph">
-          <div class="card-header py-2">
-            <div class="m-0 font-weight-bold text-primary">Cost Graph<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
-          </div>
-          <div class="card-body">
-            <div class="chart-area">
-              <canvas id="costGraph"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
 
 

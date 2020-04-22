@@ -55,6 +55,7 @@ function analytics(){
 }
 
 function askHarold(){
+  document.querySelector('.topbar').style.display = 'none';
   //  XMLHttpRequest for askArnold.html page
   var askReq = new XMLHttpRequest();
   askReq.open('GET', './assets/askHarold.html');
@@ -64,6 +65,10 @@ function askHarold(){
 
         var newScript = document.createElement("script");
         newScript.src = "./assets/harold.js";
+        document.getElementById("page-content").appendChild(newScript);
+
+        var newScript = document.createElement("script");
+        newScript.src = "./assets/autocomplete/autocomplete.js";
         document.getElementById("page-content").appendChild(newScript);
       }
   };

@@ -20,6 +20,7 @@ function updateCount(count) {
     $("#judgementCount").html(count)
 }
 
+// Insights update
 function updateHearingMinMaxCount(hearingMinMaxCount) {
     $("#hearingMinCount").html(hearingMinMaxCount.minHearing)
     $("#hearingMaxCount").html(hearingMinMaxCount.maxHearing)
@@ -54,6 +55,40 @@ function setYesNoInsight(yesId, noId, yesCount, noCount) {
     $(`#${noId}`).html(noCount)
 }
 
+var insights = {
+    'Corporate' : [],
+    'Taxation' : [],
+    'Supreme Court' : [],
+    'ibc' : ['In Favour Financial Creditor', 'In Favour of Operational Creditor', 'Involving Withdrawal of Application', 'Involving Withdrawal Of application u/s 12A', 'Stayed Invocation of Bank Guarantee', 'Existence oF disputes with Operational creditor', 'Existence of Default with Financial Credior', 'Replacement/ Changing Of RP/IRP', 'Rejection/Modification of Resolution Plan'],
+    'Company Law' : ['De Registration of company', 'Existence of Oppression Mismanagement', 'Protection of non promoters/shareholders', 'Relief to the investors', 'Rights of Depositors', 'Revision/rectification of Financial Statement', 'Foreign Investigation of company', 'Investigating into comapny affairs', 'Freezing assets of a company', 'Restriction on securities of the company', 'Coversion from public limited to private', 'Alteration of registered year'],
+    'Antitrust' : ['U/S 26(2) , CALL FOR INVESTIGATION', 'u/s 26(1) , Identifaction of Prima Facie, call for investigation', 'U/S 26(2) , CALL FOR INVESTIGATION', 'u/s 26(2) , Identifaction of Prima Facie, call for investigation', 'U/S 26(2) , CALL FOR INVESTIGATION', 'u/s 26(2) , Identifaction of Prima Facie, call for investigation', 'U/S 26(6) , CALL FOR INVESTIGATION', 'u/s 26(6) , Identifaction of Prima Facie, call for investigation', 'Orders U/S 27', 'Penalties<10%', 'Penalties>= 10%'],
+};
+
+var updateInsightsIbc = {
+    0: ['hearingMinCount', 'hearingMaxCount'], 
+    1: [ 'bankInvocationYes', 'bankInvocationNo'],
+    2: ['withdrawalOfPlanYes', 'withdrawalOfPlanNo'],
+    3: ['yesId1', 'noId1'],
+    4: ['yesId2', 'noId2'],
+    5: ['ocDisputeYes', 'ocDisputeNo'], 
+    6: ['defaultByFCYes', 'defaultByFCNo'], 
+    7: ['replacementOfRPYes', 'replacementOfRPNo'], 
+    8: ['rejectionOfPlanYes', 'rejectionOfPlanNo'], 
+};
+
+$("#popup-sub-brand div").click(function(){
+    domain_insights = '';
+    let domain = this.innerHTML;
+    for(let i=0; i<insights[domain].length; i++){
+        domain_insights += '<div class="col-12 text-white insights mb-3"><div class="p-0 justify-content-between d-flex"><div class="rounded w-100 p-3 strip-head">'+insights[domain][i]+'</div> <div class="justify-content-between d-flex ml-4 strip-body text-center"><div class="py-3 px-4 bg-primary rounded strip-pos" id="'+updateInsightsIbc[i][0]+'"></div><div class="py-3 px-4 bg-danger rounded strip-neg ml-2" id="'+updateInsightsIbc[i][1]+'"></div></div></div></div>'
+    }
+    document.getElementById('insights').innerHTML = domain_insights;
+    $('#insights').hide();
+  });
+
+$('#showInsights').click(function(){
+    $('#insights').toggle();
+});
 
 
 // updateDefaultByFC(data.defaultByFCYes)
@@ -256,41 +291,14 @@ function updateCountYearGraph(coutYearGraphObj) {
     });
 }
 
-var insights = {
-    'Corporate' : [],
-    'Taxation' : [],
-    'Supreme Court' : [],
-    'ibc' : ['In Favour Financial Creditor', 'In Favour of Operational Creditor', 'Involving Withdrawal of Application', 'Involving Withdrawal Of application u/s 12A', 'Stayed Invocation of Bank Guarantee', 'Existence oF disputes with Operational creditor', 'Existence of Default with Financial Credior', 'Replacement/ Changing Of RP/IRP', 'Rejection/Modification of Resolution Plan'],
-    'Company Law' : ['De Registration of company', 'Existence of Oppression Mismanagement', 'Protection of non promoters/shareholders', 'Relief to the investors', 'Rights of Depositors', 'Revision/rectification of Financial Statement', 'Foreign Investigation of company', 'Investigating into comapny affairs', 'Freezing assets of a company', 'Restriction on securities of the company', 'Coversion from public limited to private', 'Alteration of registered year'],
-    'Antitrust' : ['U/S 26(2) , CALL FOR INVESTIGATION', 'u/s 26(1) , Identifaction of Prima Facie, call for investigation', 'U/S 26(2) , CALL FOR INVESTIGATION', 'u/s 26(2) , Identifaction of Prima Facie, call for investigation', 'U/S 26(2) , CALL FOR INVESTIGATION', 'u/s 26(2) , Identifaction of Prima Facie, call for investigation', 'U/S 26(6) , CALL FOR INVESTIGATION', 'u/s 26(6) , Identifaction of Prima Facie, call for investigation', 'Orders U/S 27', 'Penalties<10%', 'Penalties>= 10%'],
-};
-
-var updateInsightsIbc = {
-    0: ['hearingMinCount', 'hearingMaxCount'], 
-    1: [ 'bankInvocationYes', 'bankInvocationNo'],
-    2: ['withdrawalOfPlanYes', 'withdrawalOfPlanNo'],
-    3: ['yesId1', 'noId1'],
-    4: ['yesId2', 'noId2'],
-    5: ['ocDisputeYes', 'ocDisputeNo'], 
-    6: ['defaultByFCYes', 'defaultByFCNo'], 
-    7: ['replacementOfRPYes', 'replacementOfRPNo'], 
-    8: ['rejectionOfPlanYes', 'rejectionOfPlanNo'], 
-};
-
-$("#popup-sub-brand div").click(function(){
+function showInsights() {
     domain_insights = '';
-    let domain = this.innerHTML;
+    let domain = document.getElementById('sub-brand').textContent;
     for(let i=0; i<insights[domain].length; i++){
-        console.log(updateInsightsIbc[1]);
-        domain_insights += '<div class="col-12 text-white insights mb-3"><div class="p-0 justify-content-between d-flex"><div class="rounded w-100 p-3 strip-head">'+insights[domain][i]+'</div> <div class="justify-content-between d-flex ml-4 strip-body text-center"><div class="py-3 px-4 bg-primary rounded strip-pos" id="'+updateInsightsIbc[i][0]+'"></div><div class="py-3 px-4 bg-danger rounded strip-neg ml-2" id="'+updateInsightsIbc[i][1]+'"></div></div></div></div>'
+        domain_insights += '<div class="col-12 text-white insights mb-3"><div class="p-0 justify-content-between d-flex"><div class="rounded w-100 p-3 strip-head">'+insights[domain][i]+'</div> <div class="justify-content-between d-flex ml-4 strip-body text-center"><div class="py-3 px-4 bg-primary rounded strip-pos">45</div><div class="py-3 px-4 bg-danger rounded strip-neg ml-2">23</div></div></div></div>'
     }
     document.getElementById('insights').innerHTML = domain_insights;
-    $('#insights').hide();
-  });
-
-$('#showInsights').click(function(){
-    $('#insights').toggle();
-});
+}
 
 function updatePraticeAreaGraph(praticeGraphObj) {
 
@@ -671,10 +679,6 @@ function openJudgement(judge, url, index) {
     // window.location.href = "
 }
 
-// $('#insights .strip-pos').click(function(){
-//     console.log('here');
-// });
-
 $('#data_display #showResult').click(function(){
     var resWindow = window.open(window.location.href);
     resScript = document.createElement('script');
@@ -692,9 +696,6 @@ $('#data_display #showResult').click(function(){
         document.getElementById('cards').appendChild(updateScript);
         document.getElementById('cards').appendChild(apiScript);
     }
-
-    // var initScript = document.createElement("script");
-    // initScript.src = "./assets/init.js";
 
     resScript.innerHTML = '(' + injectThis.toString() + '());';
     resWindow.onload = function () {

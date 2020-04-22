@@ -1,4 +1,4 @@
-let rootUrl = "https://api.legalmind.tech:8041"
+var rootUrl = "https://api.legalmind.tech:8041"
 // let rootUrl = "http://0.0.0.0:8044"
 
 isIncludeCost = null
