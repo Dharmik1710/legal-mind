@@ -91,7 +91,34 @@ $("#popup-sub-brand div").click(function(){
     }
     document.getElementById('insights').innerHTML = domain_insights;
     $('#insights').hide();
-  });
+
+    // on click .strip-pos open search results
+    $('.strip-pos, .strip-neg').click(function(){
+        var resWindow = window.open(window.location.href);
+        resScript = document.createElement('script');
+    
+        function injectThis() {
+    
+            var updateScript = document.createElement("script");
+            updateScript.src = "./assets/UpdateUI.js";
+        
+            var apiScript = document.createElement("script");
+            apiScript.src = "./assets/api.js";
+        
+            document.getElementById('page-content').innerHTML = '<div class="px-5 py-2" id="cards">' + window.opener.document.getElementById('cards').innerHTML + '</div>';     
+            $('#Search').focus();
+            document.getElementById('cards').appendChild(updateScript);
+            document.getElementById('cards').appendChild(apiScript);
+        }
+    
+        resScript.innerHTML = '(' + injectThis.toString() + '());';
+        resWindow.onload = function () {
+            // this.document.body.appendChild(initScript);
+            this.document.body.appendChild(resScript);
+        };
+    });
+
+});
 
 $('#showInsights').click(function(){
     $('#insights').toggle();
@@ -235,7 +262,7 @@ function updateVerdictTypeGraph(verdictTypeGraphObj) {
 
     verdictTypeGraph.destroy()
     let graphElement = document.getElementById("verdictTypeGraph").getContext('2d')
-    verdictTypeGraph = new Chart(graphElement, {
+    var graphData = {
         type: 'doughnut',
         data: {
             labels: Object.keys(verdictTypeGraphObj),
@@ -251,11 +278,17 @@ function updateVerdictTypeGraph(verdictTypeGraphObj) {
                 text: "Type of verdict"
             },
         }
-    });
+    };
+    var strGraphData = JSON.stringify(graphData);
+    verdictTypeGraph = new Chart(graphElement, graphData);
+    document.getElementById("zoomInVerTypeGraph").onclick = function () {
+        localStorage.setItem('temp', strGraphData);
+        window.open('./assets/home.html');
+    };
 }
 
 function updateIsCostGraph(isCostGraphObj) {
-    updateDoghnutGraph("costGraph", costGraph, isCostGraphObj.true, isCostGraphObj.false, "Is Cost Involved Or Not")
+    updateDoghnutGraph("costGraph", costGraph, isCostGraphObj.true, isCostGraphObj.false, "Is Cost Involved Or Not", "zoomInCostGraph")
 }
 
 function updateCountYearGraph(coutYearGraphObj) {
@@ -271,7 +304,7 @@ function updateCountYearGraph(coutYearGraphObj) {
     }
     // console.log(Object.values(coutYearGraphObj.posCount))
 
-    yearCountChart = new Chart(c1, {
+    var graphData = {
         type: "bar",
         // The data for our dataset
         data: {
@@ -295,16 +328,13 @@ function updateCountYearGraph(coutYearGraphObj) {
         options: {
             maintainAspectRatio: false,
         }
-    });
-}
-
-function showInsights() {
-    domain_insights = '';
-    let domain = document.getElementById('sub-brand').textContent;
-    for(let i=0; i<insights[domain].length; i++){
-        domain_insights += '<div class="col-12 text-white insights mb-3"><div class="p-0 justify-content-between d-flex"><div class="rounded w-100 p-3 strip-head">'+insights[domain][i]+'</div> <div class="justify-content-between d-flex ml-4 strip-body text-center"><div class="py-3 px-4 bg-primary rounded strip-pos">45</div><div class="py-3 px-4 bg-danger rounded strip-neg ml-2">23</div></div></div></div>'
-    }
-    document.getElementById('insights').innerHTML = domain_insights;
+    };
+    var strGraphData = JSON.stringify(graphData);
+    yearCountChart = new Chart(c1, graphData);
+    document.getElementById("zoomInVerStatGraph").onclick = function () {
+        localStorage.setItem('temp', strGraphData);
+        window.open('./assets/home.html');
+    };
 }
 
 function updatePraticeAreaGraph(praticeGraphObj) {
@@ -337,21 +367,21 @@ function updatePraticeAreaGraph(praticeGraphObj) {
     }
     var strGraphData = JSON.stringify(graphData);
     praticeAreaChart = new Chart(c2, graphData);
-    // document.getElementById("praticeAreaChart").onclick = function () {
-    //     localStorage.setItem('temp', strGraphData);
-    //     window.open('./assets/home.html');
-    // };
+    document.getElementById("zoomInPracGraph").onclick = function () {
+        localStorage.setItem('temp', strGraphData);
+        window.open('./assets/home.html');
+    };
 }
 
 function updateIsOveruleGraph(isOveruleGraphObj) {
-    updateDoghnutGraph("overruleGraph", overruleGraph, isOveruleGraphObj.true, isOveruleGraphObj.false, "Is Overuled Or Not")
+    updateDoghnutGraph("overruleGraph", overruleGraph, isOveruleGraphObj.true, isOveruleGraphObj.false, "Is Overuled Or Not", "zoomInOverGraph")
 }
 
-function updateDoghnutGraph(graphElementId, graph, trueCount, falseCount, titleMessage) {
+function updateDoghnutGraph(graphElementId, graph, trueCount, falseCount, titleMessage, zoomId) {
     // console.log("updateDoghnutGraph -> isCostGraphObj -> ", isCostGraphObj)
     graph.destroy()
     let graphElement = document.getElementById(graphElementId).getContext('2d')
-    graph = new Chart(graphElement, {
+    var graphData =  {
         type: 'doughnut',
         data: {
             labels: ["Yes", "No"],
@@ -367,7 +397,13 @@ function updateDoghnutGraph(graphElementId, graph, trueCount, falseCount, titleM
                 text: titleMessage
             }
         }
-    });
+    }
+    var strGraphData = JSON.stringify(graphData);
+    graph = new Chart(graphElement, graphData);
+    document.getElementById(zoomId).onclick = function () {
+    localStorage.setItem('temp', strGraphData);
+        window.open('./assets/home.html');
+    };
 }
 
 function updateCitationGraph(citationGraphObj) {
@@ -375,7 +411,7 @@ function updateCitationGraph(citationGraphObj) {
     // allLabels = allLabels.sort()
     citationChart.destroy()
     citationChartElemtent = document.getElementById("citationChart").getContext('2d');
-    citationChart = new Chart(citationChartElemtent, {
+    var graphData = {
         type: "horizontalBar",
         data: {
             labels: allLabels,
@@ -413,7 +449,13 @@ function updateCitationGraph(citationGraphObj) {
                 }
             },
         }
-    });
+    };
+    var strGraphData = JSON.stringify(graphData);
+    citationChart = new Chart(citationChartElemtent, graphData);
+    document.getElementById("zoomInCitationGraph").onclick = function () {
+    localStorage.setItem('temp', strGraphData);
+        window.open('./assets/home.html');
+    };
 }
 
 
@@ -654,6 +696,12 @@ function updateSearchResults(searchResults) {
     // var searchField = '<input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search for cases" aria-label="Search"> <div class="input-group-append"> <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fa fa-search text-grey"aria-hidden="true"></i></span></div>';
 
     document.getElementById('cards').innerHTML = cardsList;
+
+    // $('#cards').show();
+    $('html, body').animate({
+        scrollTop: $("#cards").offset().top - 100
+    }, 0);
+    
     // document.getElementById('scrollFix').innerHTML = searchField;
 }
 

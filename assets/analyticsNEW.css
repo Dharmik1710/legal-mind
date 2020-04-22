@@ -233,6 +233,13 @@ input, button, .custom-radio {
   width: 100px;
 }
 
+.graph .card-header{
+  line-height: 200%;
+  /* height: 100%; */
+  width: 100%;
+  align-items: center;
+}
+
 /* .insights .strip-body{
   width: 31%;
 } */

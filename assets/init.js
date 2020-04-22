@@ -29,12 +29,12 @@ $(function () {
 });
 
 // Searchbar onclick scroll to cards
-$("#Search").click(function () {
-  $('#cards').show();
-  $('html, body').animate({
-    scrollTop: $("#cards").offset().top - 100
-  }, 0);
-});
+// $("#Search").click(function () {
+//   $('#cards').show();
+//   $('html, body').animate({
+//     scrollTop: $("#cards").offset().top - 100
+//   }, 0);
+// });
 
 // $('#Search').blur(function(){
 

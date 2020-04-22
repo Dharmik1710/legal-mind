@@ -81,7 +81,7 @@
       <div class="mx-auto mb-3">
 
         <!--  info cards-->
-        <div class="col-12 text-white insights my-3">
+        <div class="col-12 text-white insights mb-3">
           <div class="p-0 justify-content-between d-flex">
             <div class="rounded w-100 p-3 strip-head">Total cases</div> 
             <div class="justify-content-between text-center d-flex ml-4 strip-body">
@@ -112,9 +112,13 @@
     <div class="row mx-auto" id="data_display">
 
       <div class="col-8 p-3">
-        <div class="card shadow graph">
+        <div class="card shadow h-100 graph">
           <div class="card-header py-2">
-            <div class="font-weight-bold text-primary mh-100">Verdict Stats Over Year<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
+            <div class="d-inline font-weight-bold text-primary">Verdict Stats Over Year</div>
+            <div class="d-inline float-right">
+              <button class="btn-primary btn-sm mx-1" id="zoomInVerStatGraph"><i class="fa fa-lg fa-search-plus"></i></button>
+              <button class="btn-sm btn-primary mx-1" id='showResult'>Results</button>
+            </div>
           </div>
           <div class="card-body">
             <div class="chart-area">
@@ -125,9 +129,13 @@
       </div>
 
       <div class="col-4 p-3">
-        <div class="card shadow graph">
+        <div class="card shadow h-100 graph">
           <div class="card-header py-2">
-            <div class="m-0 font-weight-bold text-primary">Verdict Type Graph<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
+            <div class="d-inline font-weight-bold text-primary">Verdict Type Graph</div>
+            <div class="d-inline float-right">
+              <button class="btn-primary btn-sm mx-1" id="zoomInVerTypeGraph"><i class="fa fa-lg fa-search-plus"></i></button>
+              <button class="btn-sm btn-primary mx-1" id='showResult'>Results</button>
+            </div>
           </div>
           <div class="card-body">
             <div class="chart-area">
@@ -138,9 +146,13 @@
       </div>
 
       <div class="col-8 p-3">
-        <div class="card shadow graph">
+        <div class="card shadow h-100 graph">
           <div class="card-header py-2">
-            <div class="m-0 font-weight-bold text-primary">Citation Graph<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
+            <div class="d-inline font-weight-bold text-primary">Citation Graph</div>
+            <div class="d-inline float-right">
+              <button class="btn-primary btn-sm mx-1" id='zoomInCitationGraph'><i class="fa fa-lg fa-search-plus"></i></button>
+              <button class="btn-sm btn-primary mx-1" id='showResult'>Results</button>
+            </div>
           </div>
           <div class="card-body">
             <div class="chart-area">
@@ -151,9 +163,13 @@
       </div>
 
       <div class="col-4 p-3">
-        <div class="card shadow graph">
+        <div class="card shadow h-100 graph">
           <div class="card-header py-2">
-            <div class="m-0 font-weight-bold text-primary">Overule Graph<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
+            <div class="d-inline font-weight-bold text-primary">Overule Graph</div>
+            <div class="d-inline float-right">
+              <button class="btn-primary btn-sm mx-1" id='zoomInOverGraph'><i class="fa fa-lg fa-search-plus"></i></button>
+              <button class="btn-sm btn-primary mx-1" id='showResult'>Results</button>
+            </div>
           </div>
           <div class="card-body">
             <div class="chart-area">
@@ -166,7 +182,11 @@
       <div class="col-4 p-3" style="display: none;">
         <div class="card shadow h-100 graph">
           <div class="card-header py-2">
-            <div class="m-0 font-weight-bold text-primary">Case in practice area<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
+            <div class="d-inline font-weight-bold text-primary">Case in practice area</div>
+            <div class="d-inline float-right">
+              <button class="btn-primary btn-sm mx-1" id='zoomInPracGraph'><i class="fa fa-lg fa-search-plus"></i></button>
+              <button class="btn-sm btn-primary mx-1" id='showResult'>Results</button>
+            </div>
           </div>
           <div class="card-body">
             <div class="chart-area">
@@ -179,7 +199,11 @@
       <div class="col-4 p-3">
         <div class="card shadow h-100 graph">
           <div class="card-header py-2">
-            <div class="m-0 font-weight-bold text-primary">Cost Graph<span class="btn btn-sm btn-primary float-right" id='showResult'>Results</span></div>
+            <div class="d-inline font-weight-bold text-primary">Cost Graph</div>
+            <div class="d-inline float-right">
+              <button class="btn-primary btn-sm mx-1" id='zoomInCostGraph'><i class="fa fa-lg fa-search-plus"></i></button>
+              <button class="btn-sm btn-primary mx-1" id='showResult'>Results</button>
+            </div>
           </div>
           <div class="card-body">
             <div class="chart-area">
@@ -189,11 +213,10 @@
         </div>
       </div>
 
-
       <div class="col-8 p-3">
         <div class="card shadow h-100" id="lawyerTable">
           <div class="card-header py-2">
-            <div class="m-0 font-weight-bold text-primary">Lawyer Stats</div>
+            <div class="font-weight-bold text-primary my-1">Lawyer Stats</div>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -222,7 +245,7 @@
       <div class="col-6 p-3" style="display: none;">  
         <div class="card shadow h-100" id="partyTable">
           <div class="card-header py-2">
-            <div class="m-0 font-weight-bold text-primary">Party Stats</div>
+            <div class="font-weight-bold text-primary my-1">Party Stats</div>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -249,7 +272,7 @@
       <div class="col-12 p-3">
         <div class="card shadow h-100" id="hearingTable">
           <div class="card-header py-2">
-            <div class="m-0 font-weight-bold text-primary">Hearing Stats</div>
+            <div class="m-0 font-weight-bold text-primary my-1">Hearing Stats</div>
           </div>
           <div class="card-body">
             <div class="table-responsive">
