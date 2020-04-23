@@ -1,0 +1,70 @@
+.navbar{
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+}
+
+.nav-link{
+  color: gray;
+  text-decoration: none;
+}
+
+.uline{
+  display: none;
+  width: 40%;
+  border: 1px solid white;
+}
+
+.uline .active{
+  color: black;
+  font-weight: 500;
+}
+
+.active .uline{
+  display: block;
+}
+
+.navbar-brand{
+  font-size: 25px;
+}
+
+#judgement{
+  height: calc(100% - 58px);
+  margin-left: 270px;
+  position: relative;
+  top: 58px;
+  padding: 50px 150px;
+  width: calc(100% - 270px);
+}
+
+#leftSidebar {
+  width: 270px;
+  position: fixed;
+  top: 58px;
+  left: 0;
+  height: calc(100% - 58px);
+  z-index: 999;
+  background-color: white;
+  color: black;
+  transition: all 0.5s;
+  overflow-y: scroll;
+}
+
+#judgement p{
+  text-align: justify;
+}
+
+#case-meta li{
+  color: #848796;
+}
+
+#case-meta .active{
+  border-bottom: 4px solid darkblue;
+  color: #6F6F7E;
+}
+
+#judgementBody{
+  font-family: 'Rajdhani', sans-serif;
+  color: black;
+  word-spacing: 2pt;
+  line-height: 2rem;
+}

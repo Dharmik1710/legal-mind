@@ -1,0 +1,202 @@
+body, html, #content-wrapper, #content, #page-content{
+  height: 100%;
+}
+
+#content-wrapper{
+  display: flex;
+  margin-left: 224px;
+  transition: all 0.5s;
+}
+
+.sidebar-toggled #content-wrapper {
+  margin-left: 104px;
+}
+
+.toggled .menu_item{
+  display: none !important;
+}
+
+.toggled .sidebar-brand{
+  padding: 0;
+}
+
+.menu_item{
+  letter-spacing: 0.2pt;
+}
+
+.toggled .nav-link{
+  display: block;
+  height: 70px;
+}
+
+/* lextimates */
+.lextimates-body{
+  height: 120px;
+  font-size: 25px;
+  align-items: center;
+  color: gray;
+}
+
+.lextimates-body .rounded-circle{
+  border: 10px solid #1f2971;
+  height: 110px;
+  width: 110px;
+  line-height: 70px;
+  align-self: center;
+  padding: 10px;
+}
+
+.rounded-circle .number{
+  display: block;
+  text-align: center;
+  font-size: 30px;
+}
+
+.toggled .fa::before{
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#leftSidebar{
+  overflow-y: auto;
+  background-image: linear-gradient(to bottom, #1f2971, #1f2971 , #141b4b);
+  transition: all 0.5s;
+}
+
+#leftSidebar .sidebar-brand{
+  /* background-color: #141b4b; */
+  color: white;
+  position: fixed;
+  display: block;
+  width: 224px;
+}
+
+.toggled .sidebar-brand{
+  width: 104px !important;
+}
+
+#leftSidebar ul{
+  margin-top: 71px;
+}
+
+#content .navbar{
+  position: fixed;
+  width: calc(100% - 225px);
+  right: 0;
+  z-index: 1000;
+  box-shadow: 1px 1px 3px lightgrey;
+  transition: all 0.5s;
+}
+
+.sidebar-toggled #content .navbar{
+  width: calc(100% - 104px);
+}
+
+.sidebar-brand-icon{
+  height: 50px;
+  width: 50px;
+}
+
+#page-content{
+  margin-top: 71px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    /* transition: all 0.5s; */
+}
+
+/*removing focus from input fields*/
+input, button, .custom-radio {
+  outline: none;
+  box-shadow:none !important;
+}
+
+#accordionSidebar .nav-link:hover{
+  /* background-image: linear-gradient(to left,#38428a,#38428a); */
+  background-color: #38428a;
+  cursor: pointer;
+  color: white;
+  border-left: 5px solid white;
+  font-weight: bold;
+}
+
+#leftSidebar .fa:hover{
+  color: white;
+}
+
+#leftSidebar .nav-link{
+  font-size: 15px;
+}
+
+.vertical_nav{
+  box-shadow: 3px 3px 10px rgba(34,45,125, 0.5);
+}
+
+#caseLawContent{
+  margin-right: 280px;
+}
+
+#caseLawContent nav#sidebar{
+  width: 295px;
+}
+
+#caseLawContent #menu{
+  width: 235px;
+}
+
+#sub-brand, #popup-sub-brand div{
+  cursor: pointer;
+}
+
+#sidebar {
+  width: 290px;
+  position: fixed;
+  top: 71px;
+  right: 0;
+  height: calc(100% - 71px);
+  z-index: 999;
+  background-color: white;
+  color: black;
+  transition: all 0.5s;
+  box-shadow: 1px 1px 3px lightgrey;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+#sidebar.active {
+    margin-right: -250px;
+}
+
+#notifyDropdown .message{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+#notifyDropdown .dropdown-header{
+  background-color: #1F2871;
+}
+
+/* .btn-primary{
+  background-image: linear-gradient(to left, #1f2971, #1f2971) ;
+}
+
+.btn-primary:hover{
+  background-color: #141b4b;
+}
+
+.text-primary{
+  color: #141b4b !important;
+
+} */

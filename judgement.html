@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Legalmind-judgement</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="judgement.css" rel="stylesheet">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: #F5F5F5"onload="getJudgementData()">
+
+<section>
+<nav class="navbar navbar-dark navbar-expand-sm bg-dark py-3 fixed-top" id="main-navbar">
+  <div class="navbar-brand position-absolute font-weight-bolder">LegalMind</div>
+  <div class="container justify-content-center">
+    <ul class="nav navbar-nav mx-auto">
+      <li class="nav-item active">
+          <a class="nav-link d-inline" href="#">ARGUMENTS</a>
+          <div class="uline mx-auto"></div>
+      </li>
+      <span class="d-inline mx-1 text-secondary">|</span>
+      <li class="nav-item">
+          <a class="nav-link d-inline" href="#">ISSUES</a>
+          <div class="uline mx-auto"></div>
+      </li>
+      <span class="d-inline mx-1 text-secondary">|</span>
+      <li class="nav-item">
+          <a class="nav-link d-inline" href="#">VERDICT</a>
+          <div class="uline mx-auto"></div>
+      </li>
+      <span class="d-inline mx-1 text-secondary">|</span>
+      <li class="nav-item">
+          <a class="nav-link d-inline" href="#">SENTIMENTS</a>
+          <div class="uline mx-auto"></div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+</section>
+
+
+
+<section class="judgeBody">
+    <!-- left sidebar-->
+    <nav id="leftSidebar" class="shadow">
+
+        <div data-toggle="collapse" data-target="#collapsePast" aria-expanded="true" aria-controls="collapsePast" class="p-3 collapsed">Past Orders<span><i class="fa fa-angle-right float-right px-3"></i></span></div>
+        <div id="collapsePast" class="options collapse" aria-labelledby="headingPages" data-parent="#leftSidebar">
+          <div class="px-4 pb-2 collapse-inner text-gray-600" id="pastHearingBody">
+          </div>
+        </div>
+
+        <div data-toggle="collapse" data-target="#collapseCited" aria-expanded="true" aria-controls="collapseCited" class="p-3 collapsed">Cited acts<span><i class="fa fa-angle-right float-right px-3"></i></span></div>
+        <div id="collapseCited" class="options collapse" aria-labelledby="headingPages" data-parent="#leftSidebar">
+          <div class="px-4 pb-2 collapse-inner text-gray-600" id="citationBody">
+          </div>
+        </div>
+        
+        <div data-toggle="collapse" data-target="#collapseLaws" aria-expanded="true" aria-controls="collapseLaws" class="p-3 collapsed">Cited case laws<span><i class="fa fa-angle-right float-right px-3"></i></span></div>
+        <div id="collapseLaws" class="options collapse" aria-labelledby="headingPages" data-parent="#leftSidebar">
+          <div class="px-4 pb-2 collapse-inner text-gray-600" id="actBody">
+          </div>
+        </div>
+
+        <div data-toggle="collapse" data-target="#collapseSimilar" aria-expanded="true" aria-controls="collapseSimilar" class="p-3 collapsed">Similar cases<span><i class="fa fa-angle-right float-right px-3"></i></span></div>
+        <div id="collapseSimilar" class="options collapse" aria-labelledby="headingPages" data-parent="#leftSidebar">
+          <div class="px-4 pb-2 collapse-inner text-gray-600">
+          </div>
+        </div>
+
+    </nav>
+    <!--  judgement part-->
+    <div class="" id="judgement">
+      <div class="case-head">
+        <div class="h2 text-uppercase" id="caseTitle"></div>
+        <div id="subs-case-head"  class="text-xs text-gray-700 text-uppercase">&emsp;<span class="float-right"></span></div>
+      </div>
+      <div class="my-5 d-flex">
+          <ul class="col-1 list-unstyled">
+            <li><i class="fa fa-2x pb-2 fa-envelope-square"></i></li>
+            <li><i class="fa fa-2x pb-2 fa-edit"></i></li>
+            <li><i class="fa fa-2x fa-clipboard"></i></li>          
+          </ul>
+          <div>
+            <div id="case-meta" class="mb-5">
+              <ul class="list-unstyled d-flex m-0">
+                <li class="px-4 py-2 active"><a>Bench</a></li>
+                <li class="px-4 py-2"><a>Citation</a></li>
+                <li class="px-4 py-2"><a>Advocates</a></li>
+              </ul>
+              <hr class="m-0">
+              <div class="my-3 text-uppercase text-gray-700"></div>
+            </div>
+            <div class="h5 text-gray-800">JUDGEMENT</div>
+            <hr class="m-0">
+            <div class="mt-4" id="ncltJudgementBody">
+                <p id="judgementBody"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+</section>
+
+<script src="js/script.min.js"></script>
+<script src="js/Judgement.js"></script>
+</body>
+</html>
