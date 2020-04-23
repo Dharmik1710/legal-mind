@@ -25,11 +25,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script> -->
 </head>
 
 <body id="page-top">
+  <div class="loading" id="fullScreenLoader" style="display: none">Loading&#8230;</div>
   <div>
     <nav class="shadow navbar p-0 align-items-start sidebar text-gray-500 accordion" id="leftSidebar">
       <div class="d-flex flex-column p-0">
@@ -126,35 +127,48 @@
               </form>
 
               <ul class="nav navbar-nav flex-nowrap ml-auto">
-                <li class="nav-item dropdown no-arrow mx-1" role="presentation">
-                  <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data- toggle="dropdown" aria-expanded="false" href="#"><span class="badge badge-danger badge-counter">3+</span><i class="fas fa-bell fa-fw"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
-                                        role="menu">
-                      <h6 class="dropdown-header">alerts center</h6>
-                      <a class="d-flex align-items-center dropdown-item" href="#">
-                        <div class="mr-3">
-                          <div class="bg-primary icon-circle"><i class="fas fa-file-alt text-white"></i></div>
-                        </div>
-                        <div><span class="small text-gray-500">December 12, 2019</span>
-                          <p>A new monthly report is ready to download!</p>
-                        </div>
-                      </a>
-                      <a class="d-flex align-items-center dropdown-item" href="#">
-                        <div class="mr-3">
-                          <div class="bg-success icon-circle"><i class="fas fa-donate text-white"></i></div>
-                        </div>
-                        <div><span class="small text-gray-500">December 7, 2019</span>
-                                                <p>$290.29 has been deposited into your account!</p>
-                        </div>
-                      </a>
-                      <a class="d-flex align-items-center dropdown-item" href="#">
-                        <div class="mr-3">
-                          <div class="bg-warning icon-circle"><i class="fas fa-exclamation-triangle text- white"></i></div>
-                        </div>
-                        <div><span class="small text-gray-500">December 2, 2019</span>
-                          <p>Spending Alert: We've noticed unusually high spending for your account.</p>
-                        </div>
-                      </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a></div>
+                <li class="nav-item dropdown no-arrow mx-1" id="notifyDropdown">
+                  <a class="nav-link dropdown-toggle" href="#" onclick="notify()" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bell fa-fw"></i>
+                    <!-- Counter - Alerts -->
+                    <span class="badge badge-danger badge-counter">5+</span>
+                  </a>
+                  <!-- Dropdown - Alerts -->
+                  <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in">
+                    <h6 class="dropdown-header">
+                      Alerts Center
+                    </h6>
+                    <a class="dropdown-item d-flex align-items-center" href="https://ibbi.gov.in//uploads/legalframwork/fcfb78c7a64c682ec5656dc9e281b35f.pdf" target="_blank">
+                      <div>
+                        <div class="small text-gray-500">20 Mar, 2020</div>
+                        <span class="font-weight-bold message">Pre-registration Educational Course under the IBBI (Insolvency Professional) Regulations, 2016</span>
+                      </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="https://ibbi.gov.in//uploads/legalframwork/924139794bdd47c5eeb827d3e01ec0b6.pdf" target="_blank">
+                      <div>
+                        <div class="small text-gray-500">20 Mar, 2020</div>
+                        <span class="message">Course and Continuing Education under the Companies (Registered Valuers and Valuation) Rules, 2017</span>
+                      </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="https://ibbi.gov.in//uploads/legalframwork/156d6c05fbef9e140bf622aea9a1c94e.pdf" target="_blank">
+                      <div>
+                        <div class="small text-gray-500">17 Mar, 2020</div>
+                        <span class="message">Feature for modification of CIRP Forms submitted by an IP in compliance of regulation 40B of the CIRP Regulations, 2016</span>
+                      </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="https://ibbi.gov.in//uploads/legalframwork/9a83a36e957308012caf99975f2d4205.pdf" target="_blank">
+                      <div>
+                        <div class="small text-gray-500">13 Mar, 2020</div>
+                        <span class="message">The Companies (Registration Offices and Fees) Second Amendment Rules, 2020 to include filing under IBC in Form GNL-2</span>
+                      </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="https://ibbi.gov.in//uploads/legalframwork/4477a1d8adcdb7cf5d3f322b3eeb8c3f.pdf" target="_blank">
+                      <div>
+                        <div class="small text-gray-500">12 Mar, 2020</div>
+                        <span class="message">Justice (Retd.) Shri Bansi Lal Bhat, Member (Judicial), NCLAT as Officiating Chairperson of NCLAT</span>
+                      </div>
+                    </a>
+                    <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                   </div>
                 </li>
                 <li class="nav-item dropdown no-arrow mx-1" role="presentation">
@@ -223,7 +237,7 @@
                     <div id="fileLabelText" class="my-3">
                       <h6>Drag & Drop any Document</h6>
                       <div class="text-gray-600">
-                        in <span class="text-dark">.doc</span> <span class="text-dark">.docx</span> or <span class="text-dark">.pdf</span> format (50 MB maximum)
+                        in <span class="text-dark">.doc</span> <span class="text-dark">.docx</span> or <span class="text-dark">.pdf< target="_blank"/span> format (50 MB maximum)
                       </div>
                     </div>
                     <div class="text-gray-500" id="partition">
@@ -345,6 +359,7 @@
 
   <script src="assets/js/script.min.js"></script>
   <script src="./assets/drag-and-drop-file-uploading/dist/script.js"></script>
+
 </body>
 
 </html>
