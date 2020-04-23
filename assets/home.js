@@ -31,27 +31,7 @@ function analytics(){
     }
   };
 
-  //  XMLHttpRequest for json file getting cards data
-  // cardsList = "";
-  // var req = new XMLHttpRequest();
-  // req.open('GET', './assets/cards.json');
-  // req.onreadystatechange = function () {
-  //     if(req.readyState === 4) {
-  //         var cards = JSON.parse(req.responseText);
-          // list of cards
-      //     var cardsList = '<ul class="">';
-      //     for (var i=0; i<cards.length; i += 1) {
-      //       cardsList += '<li id="card' + i + '">    <fieldset class="shadow my-5">   <legend>' + cards[i].title + '</legend>   <div class="date">' + cards[i].date + '</div>   <div class="card-body">   <h5 class="card-title mb-4">' + cards[i].courtName +   '<span class="float-right">Bench: ' + cards[i].bench + '</span>   </h5>   <p class="card-text">' + cards[i].content + '</p>   </div> </fieldset> </li>';
-      //     }
-      // cardsList += '</ul>';
-      // document.getElementById('cards').innerHTML = cardsList;
-      // $('#cards').hide();
-
-      // localStorage.setItem('searchCards', JSON.stringify(cardsList));
-  //   }
-  // };
   myRequest.send();
-  // req.send();
 }
 
 function askHarold(){
@@ -117,7 +97,11 @@ function tandc(){
 $(document).ready(function () {
   $("#popup-sub-brand div").click(function(){
     document.getElementById('sub-brand').innerHTML = this.innerHTML;
-  });    
+  }); 
+  function notify(){
+    document.querySelector('#notifyDropdown').classList.toggle('show');
+    document.querySelector('#notifyDropdown .dropdown-list').classList.toggle('show');
+  }
 });
 
 function regularPage(){

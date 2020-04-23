@@ -176,6 +176,18 @@ input, button, .custom-radio {
     margin-right: -250px;
 }
 
+#notifyDropdown .message{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+#notifyDropdown .dropdown-header{
+  background-color: #1F2871;
+}
+
 /* .btn-primary{
   background-image: linear-gradient(to left, #1f2971, #1f2971) ;
 }

@@ -260,8 +260,8 @@ function updatePartyNames(partyNameData) {
 
 function updateVerdictTypeGraph(verdictTypeGraphObj) {
 
-    verdictTypeGraph.destroy()
-    let graphElement = document.getElementById("verdictTypeGraph").getContext('2d')
+    verdictTypeGraph.destroy();
+    let graphElement = document.getElementById("verdictTypeGraph").getContext('2d');
     var graphData = {
         type: 'doughnut',
         data: {
@@ -276,26 +276,55 @@ function updateVerdictTypeGraph(verdictTypeGraphObj) {
             title: {
                 display: true,
                 text: "Type of verdict"
-            },
+            }
         }
     };
     var strGraphData = JSON.stringify(graphData);
     verdictTypeGraph = new Chart(graphElement, graphData);
     document.getElementById("zoomInVerTypeGraph").onclick = function () {
         localStorage.setItem('temp', strGraphData);
-        window.open('./assets/home.html');
+        window.open('./assets/zoomGraphs.html');
+    };
+}
+
+function updateDoghnutGraph(graphElementId, graph, trueCount, falseCount, titleMessage, zoomId) {
+    // console.log("updateDoghnutGraph -> isCostGraphObj -> ", isCostGraphObj)
+    graph.destroy();
+    let graphElement = document.getElementById(graphElementId).getContext('2d');
+    var graphData =  {
+        type: 'doughnut',
+        data: {
+            labels: ["Yes", "No"],
+            datasets: [{
+                backgroundColor: ["#1d4fb2", "#dc3545"],
+                data: [trueCount, falseCount]
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: titleMessage
+            }
+        }
+    };
+    var strGraphData = JSON.stringify(graphData);
+    graph = new Chart(graphElement, graphData);
+    document.getElementById(zoomId).onclick = function () {
+    localStorage.setItem('temp', strGraphData);
+        window.open('./assets/zoomGraphs.html');
     };
 }
 
 function updateIsCostGraph(isCostGraphObj) {
-    updateDoghnutGraph("costGraph", costGraph, isCostGraphObj.true, isCostGraphObj.false, "Is Cost Involved Or Not", "zoomInCostGraph")
+    updateDoghnutGraph("costGraph", costGraph, isCostGraphObj.true, isCostGraphObj.false, "Is Cost Involved Or Not", "zoomInCostGraph");
 }
 
 function updateCountYearGraph(coutYearGraphObj) {
     //console.log(coutYearGraphObj)
-    allLabels = getUniqueArray(Object.keys(coutYearGraphObj.posCount).concat(Object.keys(coutYearGraphObj.negCount)))
-    allLabels = allLabels.sort()
-    yearCountChart.destroy()
+    allLabels = getUniqueArray(Object.keys(coutYearGraphObj.posCount).concat(Object.keys(coutYearGraphObj.negCount)));
+    allLabels = allLabels.sort();
+    yearCountChart.destroy();
     c1 = document.getElementById("chart1").getContext('2d');
 
     for (let i = 0; i < allLabels.length; i++) {
@@ -319,9 +348,7 @@ function updateCountYearGraph(coutYearGraphObj) {
                 backgroundColor: "#1d4fb2",
                 borderColor: "#1d4fb2",
                 data: Object.values(coutYearGraphObj.posCount)
-            }
-
-            ]
+            }]
         },
 
         // Configuration options go here
@@ -333,14 +360,14 @@ function updateCountYearGraph(coutYearGraphObj) {
     yearCountChart = new Chart(c1, graphData);
     document.getElementById("zoomInVerStatGraph").onclick = function () {
         localStorage.setItem('temp', strGraphData);
-        window.open('./assets/home.html');
+        window.open('./assets/zoomGraphs.html');
     };
 }
 
 function updatePraticeAreaGraph(praticeGraphObj) {
 
     //console.log(praticeGraphObj)
-    praticeAreaChart.destroy()
+    praticeAreaChart.destroy();
     c2 = document.getElementById("praticeAreaChart").getContext('2d');
     var graphData = {
         type: "doughnut",
@@ -364,46 +391,17 @@ function updatePraticeAreaGraph(praticeGraphObj) {
                 text: "Cases by Practice Area"
             }
         }
-    }
+    };
     var strGraphData = JSON.stringify(graphData);
     praticeAreaChart = new Chart(c2, graphData);
     document.getElementById("zoomInPracGraph").onclick = function () {
         localStorage.setItem('temp', strGraphData);
-        window.open('./assets/home.html');
+        window.open('./assets/zoomGraphs.html');
     };
 }
 
 function updateIsOveruleGraph(isOveruleGraphObj) {
-    updateDoghnutGraph("overruleGraph", overruleGraph, isOveruleGraphObj.true, isOveruleGraphObj.false, "Is Overuled Or Not", "zoomInOverGraph")
-}
-
-function updateDoghnutGraph(graphElementId, graph, trueCount, falseCount, titleMessage, zoomId) {
-    // console.log("updateDoghnutGraph -> isCostGraphObj -> ", isCostGraphObj)
-    graph.destroy()
-    let graphElement = document.getElementById(graphElementId).getContext('2d')
-    var graphData =  {
-        type: 'doughnut',
-        data: {
-            labels: ["Yes", "No"],
-            datasets: [{
-                backgroundColor: ["#1d4fb2", "#dc3545"],
-                data: [trueCount, falseCount]
-            }]
-        },
-        options: {
-            maintainAspectRatio: false,
-            title: {
-                display: true,
-                text: titleMessage
-            }
-        }
-    }
-    var strGraphData = JSON.stringify(graphData);
-    graph = new Chart(graphElement, graphData);
-    document.getElementById(zoomId).onclick = function () {
-    localStorage.setItem('temp', strGraphData);
-        window.open('./assets/home.html');
-    };
+    updateDoghnutGraph("overruleGraph", overruleGraph, isOveruleGraphObj.true, isOveruleGraphObj.false, "Is Overuled Or Not", "zoomInOverGraph");
 }
 
 function updateCitationGraph(citationGraphObj) {
@@ -447,14 +445,14 @@ function updateCitationGraph(citationGraphObj) {
                         ctx.fillText(label, labelPositionX, bar._model.y);
                     }));
                 }
-            },
+            }
         }
     };
     var strGraphData = JSON.stringify(graphData);
     citationChart = new Chart(citationChartElemtent, graphData);
     document.getElementById("zoomInCitationGraph").onclick = function () {
     localStorage.setItem('temp', strGraphData);
-        window.open('./assets/home.html');
+        window.open('./assets/zoomGraphs.html');
     };
 }
 

@@ -15,7 +15,14 @@ $('#notOpt').change(function(){
             var cardlist = '';
             for (var obj in notObj){
                 if(notObj[obj]['option'] === value){
-                    cardlist += '<div class="card shadow mb-4"><div class="card-header py-3 d-flex justify-content-between"><div class="m-0 font-weight-bold text-primary h6" id="cardHead">' + notObj[obj]['title'] + '</div><div class="px-3">' + notObj[obj]['date'] + '</div></div><div class="card-body" id="ansBody"><a href="' + notObj[obj]['link'] + '">' + notObj[obj]['link'] + '</a></div></div>';
+                    cardlist += `<a href="` + notObj[obj]['link'] + `" target="_blank">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body py-3 d-flex justify-content-between">
+                                            <div class="px-3 col-2">` + notObj[obj]['date'] + `</div>
+                                            <div class="m-0 col-10 font-weight-bold text-primary h6" id="cardHead">` + notObj[obj]['title'] + `</div>
+                                        </div>
+                                    </div>
+                                </a>`;
                 }
             }
             document.getElementById("notCards").innerHTML = cardlist;
