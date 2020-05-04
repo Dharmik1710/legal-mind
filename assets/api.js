@@ -334,7 +334,7 @@ $("#provisions").change(function () {
 
 
 // $("#searchInput").change(function () {
-$("#Search").on('input', function (e) {
+$("#Search input").on('input', function (e) {
     let court = $("#court").val()
     let judgeName = $(this).val() == "Judge" ? null : $(this).val()
     let lawyerName = $("#lawyerName").val() == "Lawyer Name" ? null : $("#lawyerName").val()

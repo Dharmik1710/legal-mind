@@ -106,7 +106,7 @@ $("#popup-sub-brand div").click(function(){
             apiScript.src = "./assets/api.js";
         
             document.getElementById('page-content').innerHTML = '<div class="px-5 py-2" id="cards">' + window.opener.document.getElementById('cards').innerHTML + '</div>';     
-            $('#Search').focus();
+            $('#Search input').focus();
             document.getElementById('cards').appendChild(updateScript);
             document.getElementById('cards').appendChild(apiScript);
         }
@@ -726,7 +726,7 @@ $('#data_display #showResult').click(function(){
         apiScript.src = "./assets/api.js";
     
         document.getElementById('page-content').innerHTML = '<div class="px-5 py-2" id="cards">' + window.opener.document.getElementById('cards').innerHTML + '</div>';     
-        $('#Search').focus();
+        $('#Search input').focus();
         document.getElementById('cards').appendChild(updateScript);
         document.getElementById('cards').appendChild(apiScript);
     }

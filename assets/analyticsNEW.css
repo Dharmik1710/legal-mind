@@ -19,9 +19,10 @@ body {
 }
 
 #menuButton{
+  display: block;
   padding: 0;
   background-color: white;
-  width: 40px;
+  width: 45px;
   box-shadow: 1px 1px 3px lightgrey;
   position: fixed;
   height: 100%;
@@ -33,7 +34,7 @@ body {
 }
 
 #menu{
-  margin-left: 35px;
+  margin-left: 45px;
   width: 250px;
   overflow-y: scroll;
   text-align: center;
@@ -43,47 +44,32 @@ body {
     CONTENT STYLE
 ----------------------------------------------------- */
 
-#cont {
-    width: calc(100% - 280px);
-    padding: 10px;
-      transition: all 0.5s;
-/*
-    min-height: 100vh;
-    transition: all 0.3s;
-    position: absolute;
-    top: 0;
-    left: 0;
-*/
+#cont.active{
+  width: calc(100% - 40px);
+  transition: all 0.5s;
 }
 
-#cont.active {
-    width: calc(100% - 40px);
-  padding: 10px;
+#cont{
+  width: calc(100% - 280px);
+  transition: all 0.5s;
+}
+
+#sidebar.active{
+  margin-right: -250px;
 }
 
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -280px;
-    }
-    #sidebar.active {
-        margin-left: 0;
-    }
-    #cont {
-        width: 100%;
-    }
-    #cont.active {
-        width: calc(100% - 280px);
-    }
-    #sidebarCollapse span {
-        display: none;
-    }
+@media only screen and (max-width: 1024px) {
+  #sidebar.active{
+    margin-right: -250px;
+  }
+  #cont {
+    width: calc(100% - 40px);
+  }  
 }
-
-
 
 
 /*Rest of the page styling*/
@@ -221,7 +207,7 @@ input, button, .custom-radio {
 }
 
 .insights .strip-head{
-  background-color:  #1f2971 ;
+  background-color: #1F2871 ;
   /* width: 66%; */
 }
 
@@ -252,4 +238,10 @@ input, button, .custom-radio {
 .table th{
   font-size: 13px;
   color: DodgerBlue;
+}
+
+@media only screen and (max-width: 450px) {
+  #page-content{
+    margin-top: 80px !important;
+  }
 }

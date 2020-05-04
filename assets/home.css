@@ -4,12 +4,32 @@ body, html, #content-wrapper, #content, #page-content{
 
 #content-wrapper{
   display: flex;
-  margin-left: 224px;
-  transition: all 0.5s;
+  margin-left: 16rem;
+}
+
+#Search{
+  display: inline-block;
+}
+
+.sidebar.toggled{
+  width: 4.5rem !important;
+}
+
+.sidebar.toggled .nav-item .nav-link {
+  width: 4.5rem !important;
+}
+
+.sidebar .nav-item .nav-link {
+  width: 16rem !important;
+}
+
+.sidebar .nav-item .nav-link i{
+  font-size: 18px;
+  margin: 0.5rem;
 }
 
 .sidebar-toggled #content-wrapper {
-  margin-left: 104px;
+  margin-left: 4.5rem;
 }
 
 .toggled .menu_item{
@@ -18,6 +38,7 @@ body, html, #content-wrapper, #content, #page-content{
 
 .toggled .sidebar-brand{
   padding: 0;
+  width: 4.5rem !important;
 }
 
 .menu_item{
@@ -50,10 +71,11 @@ body, html, #content-wrapper, #content, #page-content{
   display: block;
   text-align: center;
   font-size: 30px;
+  width: 70px;
 }
 
 .toggled .fa::before{
-  font-size: 20px;
+  font-size: 18px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -72,20 +94,17 @@ body, html, #content-wrapper, #content, #page-content{
   color: white;
   position: fixed;
   display: block;
-  width: 224px;
-}
-
-.toggled .sidebar-brand{
-  width: 104px !important;
+  width: 16rem;
+  padding: 0;
 }
 
 #leftSidebar ul{
-  margin-top: 71px;
+  margin-top: 70px;
 }
 
 #content .navbar{
   position: fixed;
-  width: calc(100% - 225px);
+  width: calc(100% - 16rem);
   right: 0;
   z-index: 1000;
   box-shadow: 1px 1px 3px lightgrey;
@@ -93,16 +112,17 @@ body, html, #content-wrapper, #content, #page-content{
 }
 
 .sidebar-toggled #content .navbar{
-  width: calc(100% - 104px);
+  width: calc(100% - 4.5rem);
 }
 
 .sidebar-brand-icon{
-  height: 50px;
-  width: 50px;
+  height: 70px;
+  width: 72px;
+  padding: 10px 11px;
 }
 
 #page-content{
-  margin-top: 71px;
+  margin-top: 70px;
 }
 
 .sidebar {
@@ -111,7 +131,7 @@ body, html, #content-wrapper, #content, #page-content{
     left: 0;
     height: 100vh;
     z-index: 999;
-    /* transition: all 0.5s; */
+    width: 16rem !important;
 }
 
 /*removing focus from input fields*/
@@ -134,7 +154,9 @@ input, button, .custom-radio {
 }
 
 #leftSidebar .nav-link{
-  font-size: 15px;
+  font-size: 16px;
+  height: 70px;
+  line-height: 38px;
 }
 
 .vertical_nav{
@@ -145,12 +167,13 @@ input, button, .custom-radio {
   margin-right: 280px;
 }
 
-#caseLawContent nav#sidebar{
+/* #caseLawContent nav#sidebar{
   width: 295px;
-}
+} */
 
 #caseLawContent #menu{
-  width: 235px;
+  width: 275px;
+  padding: 20px;
 }
 
 #sub-brand, #popup-sub-brand div{
@@ -158,7 +181,7 @@ input, button, .custom-radio {
 }
 
 #sidebar {
-  width: 290px;
+  width: 295px;
   position: fixed;
   top: 71px;
   right: 0;
@@ -170,10 +193,6 @@ input, button, .custom-radio {
   box-shadow: 1px 1px 3px lightgrey;
   box-sizing: border-box;
   overflow-y: scroll;
-}
-
-#sidebar.active {
-    margin-right: -250px;
 }
 
 #notifyDropdown .message{
@@ -188,6 +207,10 @@ input, button, .custom-radio {
   background-color: #1F2871;
 }
 
+#menuButton{
+  display: none;
+}
+
 /* .btn-primary{
   background-image: linear-gradient(to left, #1f2971, #1f2971) ;
 }
@@ -200,3 +223,146 @@ input, button, .custom-radio {
   color: #141b4b !important;
 
 } */
+
+@media only screen and (max-width: 1024px) {
+  #guidelines ul li{
+    width: 100%;
+  }
+  #content-wrapper{
+    margin-left: 4.5rem;
+  }
+  /* #page-content{
+    margin-top: 644px;
+    transition: 0.5s all;
+  } */
+
+  /* #content .navbar{
+    width: calc(100% - 6.5rem);
+  } */
+
+  #menuButton{
+    display: block;
+    padding: 0;
+    background-color: white;
+    width: 40px;
+    position: fixed;
+    height: 100%;
+  }
+  #caseLawContent nav#sidebar{
+    width: 330px;
+  }
+  #menuButton button{
+    position: relative;
+    top: 10px;
+  }
+  #menu{
+    margin-left: 40px;
+    overflow-y: scroll;
+    text-align: center;
+  }
+  #caseLawContent{
+    margin-right: 40px;
+  }
+  #sidebar.active{
+    margin-right: -290px;
+  }
+  /* #content .navbar {
+    width: calc(100% - 4.5rem);
+    z-index: 10;
+  } */
+}
+
+.btn-xs{
+  padding: 0.5rem 1rem;
+  font-size: .875rem;
+  line-height: .5;
+  border-radius: .2rem;
+}
+
+@media only screen and (max-width: 450px) {
+  .sidebar{
+    width: 16rem !important;
+  }
+  .sidebar.toggled {
+    width: 0 !important;
+  }
+  .sidebar-toggled #content-wrapper{
+    margin-left: 0;
+  }
+  .sidebar-toggled #content .navbar {
+    width: 100%;
+  }
+  #content-wrapper{
+    margin-left: 0;
+  }
+  #content .navbar{
+    width: 100%;
+    height: 80px;
+  }
+  .toggled .nav_link{
+    display: block !important;
+  }
+  .sidebar .nav-item .nav-link span {
+    display: inline-flex;
+  }
+  .sidebar .nav-item .nav-link {
+    text-align: left;
+  }
+  #leftSidebar .nav-link {
+    height: 62px;
+  }
+  .brand-sm .sidebar-brand-icon{
+    height: 80px;
+    width: 50px;
+    padding: 15px 0;
+  }
+  #page-content{
+    margin-top: 80px;
+  }
+  #leftSidebar ul{
+    margin-top: 80px;
+  }
+  .brand-sm img{
+    -webkit-filter : hue-rotate(180deg);
+    filter : invert(75%) sepia(9%) saturate(5699%) hue-rotate(201deg) brightness(86%) contrast(108%);  
+  }
+  .brand-sm .sidebar-brand-text{
+    color: #1f2971;
+  }
+  #caseLawContent{
+    margin-right: 0;
+  }
+  #sidebar{
+    top: 80px; 
+  }
+  #sidebar.active {
+    margin-right: -330px;
+  }
+  #caseLawContent #menu {
+    width: 320px;
+    padding: 30px;
+    margin-left: 0;
+  }
+  #sidebar .dropdown-menu.show{
+    transform: translate3d(0, 0, 0) !important;
+    top: 40px !important;
+  }
+  #sidebar .dropdown-menu{
+    transition: all 5s;
+  }
+  #sidebar .dropdown .dropdown-menu {
+    width: 260px;
+  }
+  #sidebar .dropdown-item{
+    padding: .5rem 1rem !important;
+  }
+  #lextimatesModal .modal-title{
+    font-size: 25px;
+  }
+  .rounded-circle .number {
+    font-size: 25px;
+  }
+  .lextimates-body .lextimates-text{
+    font-size: 20px;
+  }
+}

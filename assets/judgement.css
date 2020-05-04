@@ -29,15 +29,15 @@
 
 #judgement{
   height: calc(100% - 58px);
-  margin-left: 270px;
+  margin-left: 200px;
   position: relative;
   top: 58px;
   padding: 50px 150px;
-  width: calc(100% - 270px);
+  width: calc(100% - 200px);
 }
 
 #leftSidebar {
-  width: 270px;
+  width: 200px;
   position: fixed;
   top: 58px;
   left: 0;
@@ -67,4 +67,10 @@
   color: black;
   word-spacing: 2pt;
   line-height: 2rem;
+}
+
+@media only screen and (max-width: 1024px){
+  #judgement{
+    padding: 20px 50px;
+  }
 }

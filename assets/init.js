@@ -49,10 +49,17 @@ $("#cards li").click(function () {
 // toggle button of filter
 $(document).ready(function () {
   $('#sidebarCollapse').on('click', function () {
+    console.log('asdadsaasda');
     $('#sidebar, #cont').toggleClass('active');
     $('.collapse.in').toggleClass('in');
     $('a[aria-expanded=true]').attr('aria-expanded', 'false');
   });
+
+  if($(window).width()<=450){
+    // $('#menuButton').css('display', 'none');
+    // console.log('aaaaaaaaaaaaa');
+  }  
+
 });
 
 // functions of popup show and close
