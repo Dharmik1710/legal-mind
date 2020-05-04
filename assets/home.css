@@ -365,4 +365,7 @@ input, button, .custom-radio {
   .lextimates-body .lextimates-text{
     font-size: 20px;
   }
+  .brand-sm #sub-brand{
+    font-size: 15px;
+  }
 }

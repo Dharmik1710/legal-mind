@@ -87,7 +87,7 @@ $("#popup-sub-brand div").click(function(){
     domain_insights = '';
     let domain = this.innerHTML;
     for(let i=0; i<insights[domain].length; i++){
-        domain_insights += '<div class="col-12 text-white insights mb-3"><div class="p-0 justify-content-between d-flex"><div class="rounded w-100 p-3 strip-head">'+insights[domain][i]+'</div> <div class="justify-content-between d-flex ml-4 strip-body text-center"><div class="py-3 px-4 bg-primary rounded strip-pos" id="'+updateInsightsIbc[i][0]+'"></div><div class="py-3 px-4 bg-danger rounded strip-neg ml-2" id="'+updateInsightsIbc[i][1]+'"></div></div></div></div>'
+        domain_insights += '<div class="col-12 text-white insights mb-3"><div class="p-0 justify-content-between d-flex"><div class="rounded w-100 p-md-3 p-sm-2 strip-head">'+insights[domain][i]+'</div> <div class="justify-content-between d-flex ml-md-4 ml-sm-2 strip-body text-center"><div class="py-md-3 px-md-4 p-sm-2 bg-primary rounded strip-pos" id="'+updateInsightsIbc[i][0]+'"></div><div class="py-md-3 px-md-4 p-sm-2 bg-danger rounded strip-neg ml-2" id="'+updateInsightsIbc[i][1]+'"></div></div></div></div>'
     }
     document.getElementById('insights').innerHTML = domain_insights;
     $('#insights').hide();

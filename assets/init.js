@@ -48,16 +48,14 @@ $("#cards li").click(function () {
 
 // toggle button of filter
 $(document).ready(function () {
-  $('#sidebarCollapse').on('click', function () {
-    console.log('asdadsaasda');
+  $('#anlySidebarCollapse').on('click', function () {
     $('#sidebar, #cont').toggleClass('active');
     $('.collapse.in').toggleClass('in');
     $('a[aria-expanded=true]').attr('aria-expanded', 'false');
   });
 
   if($(window).width()<=450){
-    // $('#menuButton').css('display', 'none');
-    // console.log('aaaaaaaaaaaaa');
+    $('#menuButton').css('display', 'none');
   }  
 
 });

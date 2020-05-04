@@ -71,6 +71,38 @@ body {
   }  
 }
 
+@media only screen and (max-width: 450px) {
+  #page-content{
+    margin-top: 80px !important;
+  }
+  #menu{
+    margin: 0;
+    width: 280px;
+    padding: 0 25px;
+  }
+  #sidebar.active{
+    margin-right: -330px;
+  }
+  #cont {
+    width: 100% !important;
+  }
+  .chart-area{
+    height: 400px !important;
+  }
+  .strip-single{
+    width: 138px !important;
+  } 
+  .strip-pos, .strip-neg{
+    width: 65px !important;
+  }
+  .strip-neg, .strip-pos, .strip-single, .strip-head{
+    padding: .5rem !important;
+    /* font-size: 20px; */
+  }
+  .strip-body{
+    margin-left: .5rem !important;
+  }
+}
 
 /*Rest of the page styling*/
 
@@ -238,10 +270,4 @@ input, button, .custom-radio {
 .table th{
   font-size: 13px;
   color: DodgerBlue;
-}
-
-@media only screen and (max-width: 450px) {
-  #page-content{
-    margin-top: 80px !important;
-  }
 }
